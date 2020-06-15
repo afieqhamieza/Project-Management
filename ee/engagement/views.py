@@ -16,7 +16,7 @@ def engagement_index(request):
 def engagement_detail(request, pk):
     engagement = Engagement.objects.get(pk=pk)
     context= {
-        'engagement': engagement
+        'engagements': engagement
     }
 
     return render(request, 'engagement_detail.html', context)
