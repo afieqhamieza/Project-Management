@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage', #they delete this because delete hello world
+    'engagement',
 ]
 
 MIDDLEWARE = [
