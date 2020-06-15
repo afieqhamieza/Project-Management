@@ -1,10 +1,64 @@
-{% extends "index.html" %}
+{% extends "index.html" %} {% block page_content %}
 
-{% block page_content %}
+<!-- cards to put on the circles and amounts -->
+<div class="container">
+    <div class="card-deck ">
+        <div class="card">
+            <div class="card-body text-center">
+                <p class="card-text">Some text inside the first card</p>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="card-body text-center">
+                <p class="card-text">Some text inside the second card</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <p class="card-text">Some text inside the third card</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <p class="card-text">Some text inside the fourth card</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of cards -->
 
-<h1>homepage works!</h1>
+</br>
+</br>
+</br>
+</br>
+
+<!-- search bar -->
+<form action="">
+    <div class="input-group mb-4">
+        <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon5" class="form-control">
+        <div class="input-group-append">
+            <button id="button-addon5" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</form>
+<!-- end of search bar -->
+
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="">
+            <div class="card-body">
+                <h5 class="card-title">project title</h5>
+                <p class="card-text">project description</p>
+                <a href=" " class="btn btn-primary">
+                        Read More
+                    </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 
 {% endblock %}
-
-
-
