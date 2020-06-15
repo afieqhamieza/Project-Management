@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')), #they delete this because delete hello world
+    path("engagements/", include("engagement.urls")), 
 ]
