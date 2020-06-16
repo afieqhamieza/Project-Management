@@ -27,10 +27,6 @@
 </div>
 <!-- end of cards -->
 
-<!-- a test button to test the engagement_index page -->
-<a href="{% url 'engagement_index' %}" class="btn btn-primary">Read More</a>
-<!-- end of the test button -->
-
 </br>
 </br>
 </br>
@@ -47,22 +43,7 @@
 </form>
 <!-- end of search bar -->
 
-<div class="row">
-    {% for project in projects %}
-    <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="">
-            <div class="card-body">
-                <h5 class="card-title">project title</h5>
-                <p class="card-text">project description</p>
-                <a href=" " class="btn btn-primary">
-                        Read More
-                    </a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-
+<!-- displaying all the titles of the engagements -->
+<!-- end of engagement display -->
 
 {% endblock %}

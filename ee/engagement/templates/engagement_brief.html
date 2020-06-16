@@ -1,0 +1,14 @@
+<!-- this is all of the engagement lists that we display in the homepage -->
+
+<div class="row">
+    {% for engagement in engagements %}
+    <div class="col-md-3">
+        <div class="card mb-1">
+            <div class="card-body">
+                <!-- <p class="card-title">{{ engagement.title }}</p> -->
+                <p class="card-title">engagement</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

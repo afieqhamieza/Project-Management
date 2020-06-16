@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage', #they delete this because delete hello world
     'engagement',
+    'employee',
 ]
 
 MIDDLEWARE = [
