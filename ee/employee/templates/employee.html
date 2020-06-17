@@ -1,76 +1,32 @@
 {% extends "index.html" %} {% load static %} {% block page_content %}
 
 <div class="container">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color:grey'></i></div>
-                    <div class="col-9 ">
-                        <h5>Employee Name</h5>
-                        <div class="list-inline">
-                            <span class="list-inline-item">First item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Second item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Third item</span>
+    <div class="card">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                {% for employee in employees %}
+
+                <li class="list-group-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color: rgb(23, 39, 39);'></i></div>
+                            <div class="col-9 ">
+                                <h5>{{ employee.name }}</h5>
+                                <div class="list-inline">
+                                    <span class="list-inline-item">{{ employee.staffId }}</span>
+                                    <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
+                                    <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
+                                </div>
+                            </div>
+                            <div class="col-2" style='background-color: rgb(23, 39, 39);'></div>
                         </div>
                     </div>
-                    <div class="col-2 bg-success">.col-3</div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color:grey'></i></div>
-                    <div class="col-9 ">
-                        <h5>Employee Name</h5>
-                        <div class="list-inline">
-                            <span class="list-inline-item">First item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Second item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Third item</span>
-                        </div>
-                    </div>
-                    <div class="col-2 bg-success">.col-3</div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color:grey'></i></div>
-                    <div class="col-9 ">
-                        <h5>Employee Name</h5>
-                        <div class="list-inline">
-                            <span class="list-inline-item">First item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Second item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Third item</span>
-                        </div>
-                    </div>
-                    <div class="col-2 bg-success">.col-3</div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color:grey'></i></div>
-                    <div class="col-9 ">
-                        <h5>Employee Name</h5>
-                        <div class="list-inline">
-                            <span class="list-inline-item">First item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Second item</span>
-                            <span class="list-inline-item">&bull;&nbsp;&nbsp;Third item</span>
-                        </div>
-                    </div>
-                    <div class="col-2 bg-success">.col-3</div>
-                </div>
-            </div>
-        </li>
-    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
 </div>
-
-
-
-
 
 {% endblock %}
