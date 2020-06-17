@@ -1,5 +1,6 @@
 <html>
 
+
 <head>
     <title>ee</title>
     <meta charset="utf-8">
@@ -8,6 +9,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% comment %} static files {% endcomment %}
+    {% comment %} {% load staticfiles %}
+    <link rel=”stylesheet” href=”{% static 'ee\employee\static\style.css' %}”> {% endcomment %}
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -26,7 +32,7 @@
 
 </head>
 
-<body>
+<body style="background-color: 5E7893;">
     <nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="{% url 'homepage' %}">ee</a>

@@ -1,4 +1,10 @@
-{% extends "index.html" %} {% load static %} {% block page_content %}
+<html>
+{% extends "index.html" %} 
+
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+{% block page_content %}
 
 <div class="container">
     <div class="card">
@@ -30,3 +36,4 @@
 </div>
 
 {% endblock %}
+</html>
