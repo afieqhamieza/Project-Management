@@ -1,21 +1,54 @@
 <html>
-{% extends "index.html" %} 
 
-{% load static %} 
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    {% extends "index.html" %}
+    {% block page_content %}
 
-{% block page_content %}
+<head>
+    <!-- {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" /> -->
 
-<div class="container">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .eIcon {
+            font-size: 50px;
+            color: rgb(23, 39, 39);
+            position: absolute;
+            left: 0px;
+        }
+
+        .tIcon {
+            font-size: 15px;
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+
     <div class="card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 {% for employee in employees %}
-
                 <li class="list-group-item">
                     <div class="container">
                         <div class="row">
-                            <div class="col-1 "><i class='fas fa-user-circle' style='font-size:50px;color: rgb(23, 39, 39);'></i></div>
+                            <div class="col-1 "><i class='eIcon fas fa-user-circle'></i></div>
                             <div class="col-9 ">
                                 <h5>{{ employee.name }}</h5>
                                 <div class="list-inline">
@@ -24,7 +57,7 @@
                                     <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
                                 </div>
                             </div>
-                            <div class="col-2" style='background-color: rgb(23, 39, 39);'></div>
+                            <div class="col-2"><i class='tIcon fas fa-tasks'>&nbsp;3</i></div>
                         </div>
                     </div>
                 </li>
@@ -33,7 +66,9 @@
         </div>
     </div>
 
-</div>
+
+</body>
 
 {% endblock %}
+
 </html>
