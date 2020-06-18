@@ -10,7 +10,7 @@
             height: 5px;
         }
 
-        .profile-card-3 {
+        .card {
             font-family: 'Open Sans', Arial, sans-serif;
             position: relative;
             float: left;
@@ -21,14 +21,14 @@
             border: none;
         }
 
-        .profile-card-3 .background-block {
+        .background-block {
             float: left;
             width: 100%;
             height: 200px;
             overflow: hidden;
         }
 
-        .profile-card-3 .background-block .background {
+        .background-block .background {
             width: 100%;
             vertical-align: top;
             opacity: 0.9;
@@ -38,7 +38,7 @@
             transform: scale(2.8);
         }
 
-        .profile-card-3 .card-content {
+        .card-content {
             width: 100%;
             padding: 15px 25px;
             color: #232323;
@@ -50,7 +50,7 @@
             z-index: 9999;
         }
 
-        .profile-card-3 .card-content::before {
+        .card-content::before {
             content: '';
             background: #efefef;
             width: 120%;
@@ -62,10 +62,10 @@
             transform: rotate(-13deg);
         }
 
-        .profile-card-3 .profile {
+        .profile {
             border-radius: 50%;
             position: absolute;
-            bottom: 73%;
+            bottom: 75%;
             left: 10%;
             max-width: 70px;
             opacity: 1;
@@ -76,19 +76,19 @@
             z-index: 99999;
         }
 
-        .profile-card-3 h2 {
+        h2 {
             /* margin: 0 0 5px; */
             font-weight: 600;
             font-size: 25px;
         }
 
-        .profile-card-3 h2 small {
+        h2 small {
             display: block;
             font-size: 15px;
             margin-top: 10px;
         }
 
-        .profile-card-3 i {
+        .card i {
             display: inline-block;
             font-size: 16px;
             color: #232323;
@@ -101,18 +101,18 @@
             margin: 0 5px;
         }
 
-        .profile-card-3 .icon-block {
+        .icon-block {
             margin-top: 15px;
             position: absolute;
             bottom: 25px;
             right: 25px;
         }
 
-        .profile-card-3 .icon-block a {
+        .icon-block a {
             text-decoration: none;
         }
 
-        .profile-card-3 i:hover {
+        i:hover {
             background-color: #232323;
             color: #fff;
             text-decoration: none;
@@ -138,9 +138,12 @@
         </div>
         {% endfor %}
     </div>
-    
-    <div class="col-md-4">
-        <div class="card profile-card-3">
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-1">
             <div class="progress a">
                 <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
                     aria-valuemin="0" aria-valuemax="100"></div>
@@ -164,13 +167,103 @@
     </div>
 
 
+    <div class="col-md-3">
+        <div class="card mb-1">
+            <div class="progress a">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="background-block" style="background-color: gray; height: 98px;"></div>
+            <div class="profile-thumb-block">
+                <i class='fas fa-circle-notch profile' style='font-size:50px'></i>
+            </div>
+            <div class="card-content">
+
+                <h2>
+                    Project's name
+                    <small>Some short description about the project</small>
+                </h2>
+                <div class="icon-block">
+                    <a href="#"><i class="fas fa-users"></i></a>
+                    <a href="#"> <i class="fas fa-business-time"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <div class="col-md-3">
+        <div class="card mb-1">
+            <div class="progress a">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="background-block" style="background-color: gray; height: 98px;"></div>
+            <div class="profile-thumb-block">
+                <i class='fas fa-circle-notch profile' style='font-size:50px'></i>
+            </div>
+            <div class="card-content">
 
+                <h2>
+                    Project's name
+                    <small>Some short description about the project</small>
+                </h2>
+                <div class="icon-block">
+                    <a href="#"><i class="fas fa-users"></i></a>
+                    <a href="#"> <i class="fas fa-business-time"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-md-3">
+        <div class="card mb-1">
+            <div class="progress a">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="background-block" style="background-color: gray; height: 98px;"></div>
+            <div class="profile-thumb-block">
+                <i class='fas fa-circle-notch profile' style='font-size:50px'></i>
+            </div>
+            <div class="card-content">
 
+                <h2>
+                    Project's name
+                    <small>Some short description about the project</small>
+                </h2>
+                <div class="icon-block">
+                    <a href="#"><i class="fas fa-users"></i></a>
+                    <a href="#"> <i class="fas fa-business-time"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-md-3">
+        <div class="card mb-1">
+            <div class="progress a">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="background-block" style="background-color: gray; height: 98px;"></div>
+            <div class="profile-thumb-block">
+                <i class='fas fa-circle-notch profile' style='font-size:50px'></i>
+            </div>
+            <div class="card-content">
 
+                <h2>
+                    Project's name
+                    <small>Some short description about the project</small>
+                </h2>
+                <div class="icon-block">
+                    <a href="#"><i class="fas fa-users"></i></a>
+                    <a href="#"> <i class="fas fa-business-time"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
