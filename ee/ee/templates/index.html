@@ -31,24 +31,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <!-- bootstrap4 icon -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
     <!-- Compiled and minified JavaScript -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-       
-    
+
+
 
 
     <style>
-        body{
-            background-color: black; 
+        body {
+            background-color: white;
         }
 
-        .navbar{
+        .navbar {
             z-index: 9999;
+            background-color: firebrick;
+        }
+
+        .footer {
+            bottom: 0;
+            background-color: red;
+            height: 2em;
+            left: 0;
+            position: relative;
+            font-size: small;
+            width: 100%;
         }
     </style>
 
@@ -56,8 +68,8 @@
 
 </head>
 
-<body >
-    <nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
+<body>
+    <nav class="navbar navbar-expand navbar-dark fixed-top">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="{% url 'homepage' %}">ee</a>
 
@@ -83,6 +95,9 @@
         {% block page_content %}{% endblock %}
     </div>
 
+    <div class="footer">
+        <p>uytre</p>
+    </div>
 </body>
 
 </html>
