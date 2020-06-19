@@ -126,4 +126,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'ee\employee\static\css\employee.css',
+    'ee\engagement\static\css\engagement_index.css',
 ]
