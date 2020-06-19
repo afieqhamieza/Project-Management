@@ -9,14 +9,28 @@
 </head>
 
 <body>
-    <!-- add employee button -->
+    <!-- add project button -->
     <div class="" style="text-align: right;margin-top:1%">
-        <button class="icon-btn add-btn">
+        <button id="show" class="icon-btn add-btn" onclick="openForm()">
             <div class="add-icon"></div>
             <div class="btn-txt">Add Project</div>
         </button>
     </div>
-    <!-- end of add employee button -->
+    <!-- end of add project button -->
+
+    <!-- add project form -->
+    <div class="center hideform">
+        <button id="close" style="float: right;">X</button>
+        <form action="/action_page.php">
+            First name:<br>
+            <input type="text" name="firstname" value="Mickey">
+            <br> Last name:<br>
+            <input type="text" name="lastname" value="Mouse">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- end of add project form -->
 
     <!-- <h1>Engagements</h1> -->
     <div class="row">
@@ -45,8 +59,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -65,8 +78,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -85,8 +97,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -105,8 +116,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -125,8 +135,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -145,8 +154,7 @@
                 </div>
                 <div class="card-content">
                     <p>
-                        <strong>project's title</strong><br />
-                        Some short description about the project
+                        <strong>project's title</strong><br /> Some short description about the project
                     </p>
                     <hr />
                     <div class="icon-block">
@@ -203,14 +211,10 @@
     </div>
     <!-- end of modal -->
 
-
-
-
-
-
-
 </body>
 
+{% load static %}
+<script type="text/javascript" src="{% static 'js/engagement_index.js' %}"></script>
 
 
 {% endblock %}

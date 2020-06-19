@@ -1,195 +1,214 @@
-        .a {
-            top: 0px;
-            height: 5px;
-        }
+.a {
+    top: 0px;
+    height: 5px;
+}
 
-        .card-deck {
-            margin-bottom: 30px;
-        }
+.card-deck {
+    margin-bottom: 30px;
+}
 
-        .card {
-            font-family: 'Open Sans', Arial, sans-serif;
-            position: relative;
-            float: left;
-            overflow: hidden;
-            width: 100%;
-            /* text-align: center; */
-            height: 300px;
-            border: none;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            border-radius: 5px;
-        }
+.card {
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    /* text-align: center; */
+    height: 300px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
 
-        .card .card-content {
-            padding: 25px;
-        }
+.card .card-content {
+    padding: 25px;
+}
 
-        .card-content {
-            width: 100%;
-            padding: 15px 25px;
-            color: #232323;
-            float: left;
-            background: white;
-            height: 100%;
-            border-radius: 0 0 5px 5px;
-            position: relative;
-        }
+.card-content {
+    width: 100%;
+    padding: 15px 25px;
+    color: #232323;
+    float: left;
+    background: white;
+    height: 100%;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+}
 
-        h2 {
-            /* margin: 0 0 5px; */
-            font-weight: 600;
-            font-size: 25px;
-        }
+h2 {
+    /* margin: 0 0 5px; */
+    font-weight: 600;
+    font-size: 25px;
+}
 
-        h2 small {
-            display: block;
-            font-size: 15px;
-            margin-top: 10px;
-        }
+h2 small {
+    display: block;
+    font-size: 15px;
+    margin-top: 10px;
+}
 
-        .card i {
-            display: inline-block;
-            font-size: 16px;
-            /* color: blue; */
-            text-align: center;
-            border: 1px solid lightslategray;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            border-radius: 50%;
-            margin: 0 5px;
-            background-color: rgba(224, 224, 224, 0.4);
-        }
+.card i {
+    display: inline-block;
+    font-size: 16px;
+    /* color: blue; */
+    text-align: center;
+    border: 1px solid lightslategray;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(224, 224, 224, 0.4);
+}
 
-        .icon-block {
-            margin-top: 15px;
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-        }
+.icon-block {
+    margin-top: 15px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
 
-        .icon-block a {
-            text-decoration: none;
-        }
+.icon-block a {
+    text-decoration: none;
+}
 
-        i:hover {
-            background-color: rgba(110, 1, 161, 0.5);
-            color: black;
-            text-decoration: none;
-        }
+i:hover {
+    background-color: rgba(110, 1, 161, 0.5);
+    color: black;
+    text-decoration: none;
+}
 
-        .fa-users {
-            color: #FF7A0D;
-        }
+.fa-users {
+    color: #FF7A0D;
+}
 
-        .fa-hourglass-half {
-            color: #D80032;
-        }
+.fa-hourglass-half {
+    color: #D80032;
+}
 
-        /* add project button styling */
-        .icon-btn {
-            width: 50px;
-            height: 50px;
-            border: 1px solid #47a025;
-            background: rgba(224, 224, 224, 0.4);
-            border-radius: 25px;
-            overflow: hidden;
-            position: fixed;
-            top: 13%;
-            right: 1%;
-            transition: width 0.2s ease-in-out;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            /* transition: 0.3s; */
-            z-index: 1001;
-        }
 
-        .icon-btn:hover {
-            background: #48a02521;
+/* add project button styling */
 
-        }
+.icon-btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #47a025;
+    background: rgba(224, 224, 224, 0.4);
+    border-radius: 25px;
+    overflow: hidden;
+    position: fixed;
+    top: 13%;
+    right: 1%;
+    transition: width 0.2s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* transition: 0.3s; */
+    z-index: 1001;
+}
 
-        .add-btn:hover {
-            width: 150px;
-        }
+.icon-btn:hover {
+    background: #48a02521;
+}
 
-        .add-btn::before,
-        .add-btn::after {
-            transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
-            content: "";
-            position: absolute;
-            height: 4px;
-            width: 10px;
-            top: calc(50% - 2px);
-            background: #47a025;
-        }
+.add-btn:hover {
+    width: 150px;
+}
 
-        .add-btn::after {
-            right: 14px;
-            overflow: hidden;
-            border-top-right-radius: 2px;
-            border-bottom-right-radius: 2px;
-        }
+.add-btn::before,
+.add-btn::after {
+    transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 10px;
+    top: calc(50% - 2px);
+    background: #47a025;
+}
 
-        .add-btn::before {
-            left: 14px;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-        }
+.add-btn::after {
+    right: 14px;
+    overflow: hidden;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
 
-        .icon-btn:focus {
-            outline: none;
-        }
+.add-btn::before {
+    left: 14px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
 
-        .btn-txt {
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
+.icon-btn:focus {
+    outline: none;
+}
 
-        .add-btn:hover::before,
-        .add-btn:hover::after {
-            width: 4px;
-            border-radius: 2px;
-        }
+.btn-txt {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
 
-        .add-btn:hover .btn-txt {
-            opacity: 1;
-        }
+.add-btn:hover::before,
+.add-btn:hover::after {
+    width: 4px;
+    border-radius: 2px;
+}
 
-        .add-icon::after,
-        .add-icon::before {
-            transition: all 0.2s ease-in-out;
-            content: "";
-            position: absolute;
-            height: 20px;
-            width: 2px;
-            top: calc(50% - 10px);
-            background: #47a025;
-            overflow: hidden;
-        }
+.add-btn:hover .btn-txt {
+    opacity: 1;
+}
 
-        .add-icon::before {
-            left: 22px;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-        }
+.add-icon::after,
+.add-icon::before {
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 2px;
+    top: calc(50% - 10px);
+    background: #47a025;
+    overflow: hidden;
+}
 
-        .add-icon::after {
-            right: 22px;
-            border-top-right-radius: 2px;
-            border-bottom-right-radius: 2px;
-        }
+.add-icon::before {
+    left: 22px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
 
-        .add-btn:hover .add-icon::before {
-            left: 15px;
-            height: 4px;
-            top: calc(50% - 2px);
-        }
+.add-icon::after {
+    right: 22px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
 
-        .add-btn:hover .add-icon::after {
-            right: 15px;
-            height: 4px;
-            top: calc(50% - 2px);
-        }
+.add-btn:hover .add-icon::before {
+    left: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+}
 
-        /* end of add project button styling */
+.add-btn:hover .add-icon::after {
+    right: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+}
+
+
+/* end of add project button styling */
+
+
+/* add project form styling */
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hideform {
+    display: none;
+}
+
+
+/* end of add form styling */
