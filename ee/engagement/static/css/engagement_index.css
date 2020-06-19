@@ -200,10 +200,15 @@ i:hover {
 /* add project form styling */
 
 .center {
-    margin: auto;
+    /* margin: auto; */
     width: 60%;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0);
+    position: absolute;
+    z-index: 1002;
+    left: 20%;
+    top: 30%;
+    background-color: #f8d212a1;
 }
 
 .hideform {
