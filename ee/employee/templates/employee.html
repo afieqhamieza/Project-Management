@@ -23,17 +23,18 @@
         .container {
             padding: 2px 16px;
         }
+
         /* end of card styling */
 
         /* user icon styling */
         .fa-user {
             font-size: 40px;
-            font-weight: 10px;
             color: #F8D112;
             position: absolute;
-            left: 0px;
+            left: 15px;
             padding: 3px;
         }
+
         /* end of user icon styling */
 
         /* project icon styling */
@@ -57,13 +58,130 @@
             color: black;
             text-decoration: none;
         }
+
         /* end of project icon styling */
+
+        /* add employee button styling */
+        .icon-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #47a025;
+            background: rgba(224, 224, 224, 0.4);
+            border-radius: 25px;
+            overflow: hidden;
+            position: fixed;
+            top: 13%;
+            right: 1%;
+            transition: width 0.2s ease-in-out;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            /* transition: 0.3s; */
+            z-index: 1001;
+        }
+
+        .icon-btn:hover {
+            background: #48a02521;
+            
+        }
+
+        .add-btn:hover {
+            width: 150px;
+        }
+
+        .add-btn::before,
+        .add-btn::after {
+            transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 10px;
+            top: calc(50% - 2px);
+            background: #47a025;
+        }
+
+        .add-btn::after {
+            right: 14px;
+            overflow: hidden;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+
+        .add-btn::before {
+            left: 14px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        .icon-btn:focus {
+            outline: none;
+        }
+
+        .btn-txt {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .add-btn:hover::before,
+        .add-btn:hover::after {
+            width: 4px;
+            border-radius: 2px;
+        }
+
+        .add-btn:hover .btn-txt {
+            opacity: 1;
+        }
+
+        .add-icon::after,
+        .add-icon::before {
+            transition: all 0.2s ease-in-out;
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 2px;
+            top: calc(50% - 10px);
+            background: #47a025;
+            overflow: hidden;
+        }
+
+        .add-icon::before {
+            left: 22px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        .add-icon::after {
+            right: 22px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+
+        .add-btn:hover .add-icon::before {
+            left: 15px;
+            height: 4px;
+            top: calc(50% - 2px);
+        }
+
+        .add-btn:hover .add-icon::after {
+            right: 15px;
+            height: 4px;
+            top: calc(50% - 2px);
+        }
+
+        /* end of add employee button styling */
     </style>
 </head>
 
 <body>
 
+    <!-- add employee button -->
+    <div class="" style="text-align: right;margin-top:1%">
+        <button class="icon-btn add-btn">
+            <div class="add-icon"></div>
+            <div class="btn-txt">Add Employee</div>
+        </button>
+    </div>
+    <!-- end of add employee button -->
 
+    <!-- card that display list of employee -->
     <div class="card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
@@ -83,7 +201,7 @@
                             <div class="col-2 ">
                                 <!-- <i class='tIcon fas fa-tasks'>&nbsp;3</i> -->
                                 <div class="tIcon ">
-                                    <a href="#"><i class="fas fa-tasks"></i></a>
+                                    <a href="#myModal" data-toggle="modal"><i class="fas fa-tasks"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -93,6 +211,49 @@
             </ul>
         </div>
     </div>
+    <!-- end of employee list card -->
+
+    <!-- modal to display the team members engaged in the project -->
+    <div class="container">
+        <!-- The Modal -->
+        <div class="modal" id="myModal" style="margin-top: 100px; height: 70%;">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h1 class="modal-title" style="color: #086788;">Engaged Project</h1>
+                        <button type="button" class="close" data-dismiss="modal"
+                            style="color: #D80032; padding-right: 20px;">×</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">First Project</li>
+                            <li class="list-group-item">Second Project</li>
+                            <li class="list-group-item">Third Project</li>
+                            <li class="list-group-item">Fourth Project</li>
+                            <li class="list-group-item">Fifth Project</li>
+                            <li class="list-group-item">Sixth Project</li>
+                            <li class="list-group-item">Seventh Project</li>
+                            <li class="list-group-item">Eighth Project</li>
+                            <li class="list-group-item">Ninth Project</li>
+                            <li class="list-group-item">Tenth Project</li>
+                        </ul>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" style="background-color: #D80032; color: white;"
+                            data-dismiss="modal"><strong>Close</strong></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of modal -->
 
 
 </body>
