@@ -199,28 +199,9 @@ i:hover {
 
 /* add project form styling */
 
-.center {
-    /* margin: auto; */
-    width: 60%;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0);
-    position: absolute;
-    z-index: 1002;
-    left: 20%;
-    top: 30%;
-    background-color: white;
-}
-
-.hideform {
-    display: none;
-}
-
 * {
     box-sizing: border-box;
 }
-
-
-/* basic stylings ------------------------------------------ */
 
 .cuba {
     font-family: 'Roboto';
@@ -252,9 +233,6 @@ input:focus {
     outline: none;
 }
 
-
-/* LABEL ======================================= */
-
 label {
     color: #999;
     font-size: 18px;
@@ -268,18 +246,12 @@ label {
     -webkit-transition: 0.2s ease all;
 }
 
-
-/* active state */
-
 input:focus~label,
 input:valid~label {
     top: -20px;
     font-size: 14px;
     color: #5264AE;
 }
-
-
-/* BOTTOM BARS ================================= */
 
 .bar {
     position: relative;
@@ -308,16 +280,10 @@ input:valid~label {
     right: 50%;
 }
 
-
-/* active state */
-
 input:focus~.bar:before,
 input:focus~.bar:after {
     width: 50%;
 }
-
-
-/* HIGHLIGHTER ================================== */
 
 .highlight {
     position: absolute;
@@ -329,17 +295,11 @@ input:focus~.bar:after {
     opacity: 0.5;
 }
 
-
-/* active state */
-
 input:focus~.highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;
 }
-
-
-/* ANIMATIONS ================ */
 
 @-webkit-keyframes inputHighlighter {
     from {
