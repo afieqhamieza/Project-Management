@@ -35,15 +35,18 @@
 
                     <!-- Modal body -->
                     <form class="cuba" action="" method="post">
+                        {% csrf_token %}
                         <div class="group">
-                            <input type="text" required="true" id="{{form.title.id_for_label}}">
+                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                            {{form.title}}
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>{{form.title.label}}</label>
                         </div>
 
                         <div class="group">
-                            <input type="text" required id="{{ form.body.id_for_label }}">
+                            <!-- <input type="text" required="true" id="{{ form.body.id_for_label }}"> -->
+                            {{form.body}}
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>{{ form.body.label }}</label>
@@ -52,7 +55,8 @@
                         <div class="row">
                             <div class="col">
                                 <div class="group">
-                                    <input type="text" required id="{{ form.startDate.id_for_label }}">
+                                    <!-- <input type="text" required="true" id="{{ form.startDate.id_for_label }}"> -->
+                                    {{ form.startDate }}
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>{{ form.startDate.label }}</label>
@@ -61,7 +65,8 @@
                             &nbsp; &nbsp;
                             <div class="col">
                                 <div class="group">
-                                    <input type="text" required id="{{ form.endDate.id_for_label }}">
+                                    <!-- <input type="text" required="true" id="{{ form.endDate.id_for_label }}"> -->
+                                    {{ form.endDate }}
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>{{ form.endDate.label }}</label>
@@ -70,17 +75,22 @@
                         </div>
 
                         <div class="group">
-                            <input type="text" required id="{{ form.staffId.id_for_label }}">
+                            <!-- <input type="text" required="true" id="{{ form.staffId.id_for_label }}"> -->
+                            {{ form.staffId }}
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>{{ form.staffId.label }}</label>
                         </div>
+                        <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
                     </form>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn" style="background-color: #D80032; color: white;"><strong>Submit</strong></button>
+                        <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
                     </div>
+
+                    <!-- to display message if successful -->
+                    
 
                 </div>
             </div>
@@ -91,13 +101,20 @@
     <!-- <h1>Engagements</h1> -->
     <div class="row">
         {% for engagement in engagements %}
-        <div class="col-md-3">
+        <div class="col-md-3 py-4">
             <div class="card mb-1">
-                <!-- <img class="card-img-top" src="{% static engagement.image %}" -->
-                <div class="card-body">
-                    <h5 class="card-title">{{ engagement.title }}</h5>
-                    <p class="card_text">{{ engagement.body }}</p>
-                    <!-- <a href="{% url 'engagement_detail' engagement.pk %}" class="btn btn-primary">Read More</a> -->
+                <div class="progress a">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="card-content">
+                    <p>
+                        <strong>{{ engagement.title }}</strong><br /> {{ engagement.body }}
+                    </p>
+                    <hr />
+                    <div class="icon-block">
+                        <a href="#teamList" data-toggle="modal"><i class="fas fa-users"></i></a>
+                        <a href="#"> <i class="fas fa-hourglass-half"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,7 +122,9 @@
     </div>
 
     <!-- later need to do for loop for this -->
-    <div class="row">
+    <!-- <div class="row">
+
+
 
         <div class="col-md-3 py-4">
             <div class="card mb-1">
@@ -197,25 +216,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 py-4">
-            <div class="card mb-1">
-                <div class="progress a">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="card-content">
-                    <p>
-                        <strong>project's title</strong><br /> Some short description about the project
-                    </p>
-                    <hr />
-                    <div class="icon-block">
-                        <a href="#teamList" data-toggle="modal"><i class="fas fa-users"></i></a>
-                        <a href="#"> <i class="fas fa-hourglass-half"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    </div> -->
     <!-- end of the for loop -->
 
 

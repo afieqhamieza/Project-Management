@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from engagement.models import Engagement
 from django.views.generic import CreateView
 from .models import Engagement
 from .forms import EngagementForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -10,11 +11,14 @@ from .forms import EngagementForm
 def engagement_index(request):
     engagement = Engagement.objects.all()   #the query
 
-    if request.method == 'POST':
-        form = EngagementForm(request.POST)
+    if (request.method == 'POST') and ("addProj" in request.POST):
+        form = EngagementForm(request.POST) #creating instance of the form
+        # import pdb ; pdb.set_trace()
         if form.is_valid():
             # should save user's input to the database here
-            return HttpResponseRedirect()   #here should enter a new url where it will go if successful
+            form.save()
+            messages.success(request, f'{"Form submission successful"}')
+            return redirect('engagement_index')   #here should enter a new url where it will go if successful
     else: # means GET
         form = EngagementForm()
     
