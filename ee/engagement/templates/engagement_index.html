@@ -1,7 +1,7 @@
 <html>
 {% extends "index.html" %}
-<!-- {% load static %}  -->
-{% load crispy_forms_tags %} {% block page_content %}
+{% load crispy_forms_tags %} 
+{% block page_content %}
 
 <head>
     {% load static %}
@@ -16,7 +16,6 @@
             <div class="add-icon"></div>
             <div class="btn-txt">Add Project</div>
         </button>
-
     </div>
     <!-- end of add project button -->
 
@@ -36,15 +35,17 @@
                     <!-- Modal body -->
                     <form class="cuba" action="" method="post">
                         {% csrf_token %}
+                        {% for field in form %}
                         <div class="group">
                             <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                            {{form.title}}
+                            {{field}}
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <label>{{form.title.label}}</label>
+                            <label>{{field.label}}</label>
                         </div>
+                        {% endfor %}
 
-                        <div class="group">
+                        {% comment %} <div class="group">
                             <!-- <input type="text" required="true" id="{{ form.body.id_for_label }}"> -->
                             {{form.body}}
                             <span class="highlight"></span>
@@ -80,7 +81,7 @@
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>{{ form.staffId.label }}</label>
-                        </div>
+                        </div> {% endcomment %}
                         <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
                     </form>
                 </div>

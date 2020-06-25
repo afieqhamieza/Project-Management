@@ -16,6 +16,6 @@ class Employee(models.Model):
 # manager
 # senior advisor
 # advisor
-# senior staffId
+# senior staff
 # intermediate staff
 # associate staff

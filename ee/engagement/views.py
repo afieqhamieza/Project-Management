@@ -13,9 +13,9 @@ def engagement_index(request):
 
     if (request.method == 'POST') and ("addProj" in request.POST):
         form = EngagementForm(request.POST) #creating instance of the form
-        # import pdb ; pdb.set_trace()
+
         if form.is_valid():
-            # should save user's input to the database here
+            # save user's input to the database here
             form.save()
             messages.success(request, f'{"Form submission successful"}')
             return redirect('engagement_index')   #here should enter a new url where it will go if successful

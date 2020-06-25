@@ -1,6 +1,7 @@
 <html>
 
 {% extends "index.html" %}
+{% load crispy_forms_tags %}
 {% block page_content %}
 
 <head>
@@ -11,13 +12,47 @@
 <body>
 
     <!-- add employee button -->
-    <div class="" style="text-align: right;margin-top:1%">
-        <button class="icon-btn add-btn">
+    <div class="" style="text-align:right; margin-top:1%">
+        <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addEmployee">
             <div class="add-icon"></div>
             <div class="btn-txt">Add Employee</div>
         </button>
     </div>
     <!-- end of add employee button -->
+
+    {% comment %} add employee form {% endcomment %}
+    <div class="container">
+        <!-- The Modal -->
+        <div class="modal fade" id="addEmployee">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <form class="cuba" action="" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="group">
+                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                            {{field}}
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>{{field.label}}</label>
+                        </div>
+                        {% endfor %}
+                        
+                        <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} end of add employee form {% endcomment %}
 
     <!-- card that display list of employee -->
     <div class="card">
