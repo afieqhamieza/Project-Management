@@ -22,8 +22,8 @@
     <!-- add project form -->
     <div class="container">
         <!-- The Modal -->
-        <div class="modal fade" id="addProject">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal fade" id="addProject" style="height: 90%; margin-top: 30px;">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
@@ -33,18 +33,19 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form class="cuba" action="" method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
-                        <div class="group">
-                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                            {{field}}
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>{{field.label}}</label>
-                        </div>
-                        {% endfor %}
-
+                    <div class="modal-body">
+                        <form class="cuba" action="" method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="group">
+                                <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                                {{field}}
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{field.label}}</label>
+                            </div>
+                            {% endfor %}
+                    </div>
                         {% comment %} <div class="group">
                             <!-- <input type="text" required="true" id="{{ form.body.id_for_label }}"> -->
                             {{form.body}}
@@ -82,7 +83,9 @@
                             <span class="bar"></span>
                             <label>{{ form.staffId.label }}</label>
                         </div> {% endcomment %}
-                        <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+                        <div class="modal-footer">
+                            <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -103,9 +106,10 @@
                         <strong>{{ engagement.title }}</strong><br /> {{ engagement.body }}
                     </p>
                     <hr />
+                    <p id="dueDate" style="left:0px;"></p>
                     <div class="icon-block">
                         <a href="#teamList" data-toggle="modal"><i class="fas fa-users"></i></a>
-                        <a href="#"> <i class="fas fa-hourglass-half"></i></a>
+                        <a onclick="showDue()"><i class="fas fa-hourglass-half"></i></a>
                     </div>
                 </div>
             </div>
@@ -157,6 +161,13 @@
 
 
 </body>
+
+<script>
+    function showDue() {
+        document.getElementById("dueDate").innerHTML = "Have a nice day!";
+        document.getElementByTagName("p").[0].setAttribute("id", "uniqueAttribute")
+    }
+</script>
 
 {% load static %}
 <script type="text/javascript" src="{% static 'js/engagement_index.js' %}"></script>

@@ -2,11 +2,11 @@ from django import forms
 from .models import *
 
 class EngagementForm(forms.ModelForm):
-    title = forms.CharField(label="Project Title", required=False, widget=forms.TextInput( attrs={}) )
-    body = forms.CharField(label="Project's Description", required=False, widget=forms.TextInput( attrs={}) )
-    startDate = forms.DateField(label="Start Date yyyy-mm-dd", required=False, widget=forms.TextInput( attrs={}) )
-    endDate = forms.DateField(label="End Date yyyy-mm-dd", required=False, widget=forms.TextInput( attrs={}) )
-    staffId = forms.IntegerField(label="Engaged Employee", required=False, widget=forms.TextInput( attrs={}) )
+    title = forms.CharField(label="Project Title", required=True, widget=forms.TextInput( attrs={}) )
+    body = forms.CharField(label="Project's Description", required=True, widget=forms.TextInput( attrs={}) )
+    startDate = forms.DateField(label="Start Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
+    endDate = forms.DateField(label="End Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
+    staffId = forms.IntegerField(label="Engaged Employee", required=True, widget=forms.TextInput( attrs={}) )
     
     # clean start date
     def clean_start_date(self):
