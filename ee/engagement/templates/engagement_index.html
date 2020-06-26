@@ -99,7 +99,7 @@
         <div class="col-md-3 py-4">
             <div class="card mb-1">
                 <div class="progress a">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar"  style= "width:{{engagement.progress}}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="card-content">
                     <p>
@@ -159,18 +159,19 @@
     <!-- end of modal -->
 
 
+<script>
+    {% comment %} function showDue() {
+        document.getElementById("dueDate").innerHTML = "Have a nice day!";
+        document.getElementByTagName("p")[0].setAttribute("id", "uniqueAttribute")
+    } {% endcomment %}
+</script>
 
 </body>
 
-<script>
-    function showDue() {
-        document.getElementById("dueDate").innerHTML = "Have a nice day!";
-        document.getElementByTagName("p").[0].setAttribute("id", "uniqueAttribute")
-    }
-</script>
+
 
 {% load static %}
-<script type="text/javascript" src="{% static 'js/engagement_index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js\engagement_index.js' %}"></script>
 
 
 {% endblock %}

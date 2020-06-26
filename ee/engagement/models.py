@@ -10,4 +10,7 @@ class Engagement(models.Model):
     endDate = models.DateField(null = True, blank = True)
     status = models.CharField(max_length=30,null = True, blank = True)
     staffId = models.IntegerField(null = True, blank = True)
+    progress = models.IntegerField(null = True, blank=True, default='0')
+
+    
 

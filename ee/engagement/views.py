@@ -10,6 +10,7 @@ from django.contrib import messages
 #a snippet of information of each engagement
 def engagement_index(request):
     engagement = Engagement.objects.all()   #the query
+    print(engagement[1].progress)
 
     if (request.method == 'POST') and ("addProj" in request.POST):
         form = EngagementForm(request.POST) #creating instance of the form
@@ -37,3 +38,8 @@ def engagement_detail(request, pk):
 
     return render(request, 'engagement_detail.html', context)
 
+def countObjects(request):
+    count= Engagement.objects.all().count()
+    context= {'count': count}
+        
+    return render(request, 'engagement_index.html', context)
