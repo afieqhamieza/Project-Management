@@ -3,14 +3,12 @@ from .models import *
 
 class EmployeeForm(forms.ModelForm):
     # creating list of employee level
-
-    level_list = ["senior executive", "executive", "senior director", "director", "senior manager", "manager", "senior advisor", "advisor", "associate"]
+    level_list = "Senior Executive", "Executive", "Senior Director", "Director", "Senior Manager", "Manager", "Senior Advisor", "Advisor", "Associate"
     level_options = []
 
     for x in level_list:
-        choice = (x[0], x[0])
+        choice = (x, x)
         level_options.append(choice)
-
 
     name = forms.CharField(label="Employee Name", required=True, widget=forms.TextInput( attrs={}) )
     staffId = forms.IntegerField(label="Staff ID", required=True, widget=forms.TextInput( attrs={}) )
@@ -19,4 +17,4 @@ class EmployeeForm(forms.ModelForm):
 
     class Meta:
         model = Employee
-        fields = ('__all__')
+        fields = ('__all__') 
