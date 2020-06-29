@@ -1,7 +1,5 @@
 <html>
-{% extends "index.html" %}
-{% load crispy_forms_tags %} 
-{% block page_content %}
+{% extends "index.html" %} {% load crispy_forms_tags %} {% block page_content %}
 
 <head>
     {% load static %}
@@ -35,8 +33,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form class="cuba" action="" method="post">
-                            {% csrf_token %}
-                            {% for field in form %}
+                            {% csrf_token %} {% for field in form %}
                             <div class="group">
                                 <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
                                 {{field}}
@@ -46,46 +43,47 @@
                             </div>
                             {% endfor %}
                     </div>
-                        {% comment %} <div class="group">
-                            <!-- <input type="text" required="true" id="{{ form.body.id_for_label }}"> -->
-                            {{form.body}}
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>{{ form.body.label }}</label>
-                        </div>
+                    <!-- {% comment %}
+                    <div class="group">
+                         <input type="text" required="true" id="{{ form.body.id_for_label }}">
+                        {{form.body}}
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>{{ form.body.label }}</label>
+                    </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="group">
-                                    <!-- <input type="text" required="true" id="{{ form.startDate.id_for_label }}"> -->
-                                    {{ form.startDate }}
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>{{ form.startDate.label }}</label>
-                                </div>
-                            </div>
-                            &nbsp; &nbsp;
-                            <div class="col">
-                                <div class="group">
-                                    <!-- <input type="text" required="true" id="{{ form.endDate.id_for_label }}"> -->
-                                    {{ form.endDate }}
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>{{ form.endDate.label }}</label>
-                                </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="group">
+                                <input type="text" required="true" id="{{ form.startDate.id_for_label }}">
+                                {{ form.startDate }}
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{ form.startDate.label }}</label>
                             </div>
                         </div>
-
-                        <div class="group">
-                            <!-- <input type="text" required="true" id="{{ form.staffId.id_for_label }}"> -->
-                            {{ form.staffId }}
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>{{ form.staffId.label }}</label>
-                        </div> {% endcomment %}
-                        <div class="modal-footer">
-                            <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
+                        &nbsp; &nbsp;
+                        <div class="col">
+                            <div class="group">
+                                <input type="text" required="true" id="{{ form.endDate.id_for_label }}">
+                                {{ form.endDate }}
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{ form.endDate.label }}</label>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="group">
+                        <input type="text" required="true" id="{{ form.staffId.id_for_label }}">
+                        {{ form.staffId }}
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>{{ form.staffId.label }}</label>
+                    </div> {% endcomment %} -->
+                    <div class="modal-footer">
+                        <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
+                    </div>
                     </form>
                 </div>
             </div>
@@ -99,7 +97,7 @@
         <div class="col-md-3 py-4">
             <div class="card mb-1">
                 <div class="progress a">
-                    <div class="progress-bar bg-success" role="progressbar"  style= "width:{{engagement.progress}}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width:{{engagement.progress}}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="card-content">
                     <p>
@@ -109,8 +107,7 @@
                     <p id="dueDate" style="left:0px;"><i class="fas far fa-calendar-alt" style="width: 200px; color: #F8D112;">&nbsp;&nbsp;{{ engagement.endDate }}</i></p>
                     <div class="icon-block">
                         <a href="#teamList" data-toggle="modal"><i class="fas fa-users"></i></a>
-                        <a onclick="showDue()"><i class="fas fa-hourglass-half"></i></a>
-                        {% comment %} <button type="button" class="btn btn-primary" disabled>{{ engagement.endDate }}</button> {% endcomment %}
+                        <a onclick="showDue()"><i class="fas fa-hourglass-half"></i></a> {% comment %} <button type="button" class="btn btn-primary" disabled>{{ engagement.endDate }}</button> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -160,12 +157,12 @@
     <!-- end of modal -->
 
 
-<script>
-    {% comment %} function showDue() {
-        document.getElementById("dueDate").innerHTML = "Have a nice day!";
-        document.getElementByTagName("p")[0].setAttribute("id", "uniqueAttribute")
-    } {% endcomment %}
-</script>
+    <script>
+        // function showDue() {
+        //     document.getElementById("dueDate").innerHTML = "Have a nice day!";
+        //     document.getElementByTagName("p")[0].setAttribute("id", "uniqueAttribute")
+        // }
+    </script>
 
 </body>
 
