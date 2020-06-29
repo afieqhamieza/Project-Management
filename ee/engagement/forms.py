@@ -4,11 +4,15 @@ from employee.models import Employee
 
 class EngagementForm(forms.ModelForm):
     # creating list of staff options
-    staff_list = Employee.objects.values_list('name')                  
+    staff_list = Employee.objects.values_list('name')    
+    id_list = Employee.objects.values_list('staffId')              
     staff_options = []
 
-    for x in staff_list:
-        choice = (x[0], x[0])
+    for x in range(len(staff_list)):
+        name = staff_list[x]    #tuple
+        id = str(id_list[x][0])     #tuple
+        name_id = ''.join(name) + " (" + ''.join(id) + ")"   #string
+        choice = (name_id, name_id)     #tuple if buat (  ,  )
         staff_options.append(choice)
         
 
@@ -16,9 +20,7 @@ class EngagementForm(forms.ModelForm):
     body = forms.CharField(label="Project's Description", required=True, widget=forms.TextInput( attrs={}) )
     startDate = forms.DateField(label="Start Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
     endDate = forms.DateField(label="End Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
-    # staffId = forms.IntegerField(label="Engaged Employee", required=True, widget=forms.TextInput( attrs={}) )
-    # staff = forms.ChoiceField(label="Engaged Employee", required=True, choices=staff_list)
-    staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_options)
+    staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_options )
 
     # clean start date
     def clean_start_date(self):
