@@ -26,3 +26,7 @@ def employee(request):
     }
     
     return render(request, 'employee.html', context)
+
+def load_levels(request):
+    level_options = request.GET.get('')
+    return render(request, 'employee.html', {'levels': level})

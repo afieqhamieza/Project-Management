@@ -8,3 +8,4 @@ class Employee(models.Model):
     level = models.CharField(max_length=255)
     team = models.CharField(max_length=255)
 
+  

@@ -1,8 +1,6 @@
 <html>
 
-{% extends "index.html" %}
-{% load crispy_forms_tags %}
-{% block page_content %}
+{% extends "index.html" %} {% load crispy_forms_tags %} {% block page_content %}
 
 <head>
     {% load static %}
@@ -20,23 +18,22 @@
     </div>
     <!-- end of add employee button -->
 
-    {% comment %} add employee form {% endcomment %}
+    <!-- add employee form  -->
     <div class="container">
-        <!-- The Modal --> 
+        <!-- The Modal -->
         <div class="modal fade" id="addEmployee">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
+                        <h4 class="modal-title">New Employee</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
                     <form class="cuba" action="" method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
+                        {% csrf_token %} {% for field in form %}
                         <div class="group">
                             <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
                             {{field}}
@@ -45,8 +42,24 @@
                             <label>{{field.label}}</label>
                         </div>
                         {% endfor %}
-                        
-                        <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+
+                        <div class="group">
+                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                            <!-- <label>{{form.level.label}}</label>
+                            <span class="highlight"></span>
+                            <span class="bar">{{form.level}}</span> -->
+
+
+                            <div class="floating-label">
+                                {{form.level}}
+                                <span class="highlight1"></span>
+                                <label>Select</label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -98,8 +111,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h1 class="modal-title" style="color: #086788;">Engaged Project</h1>
-                        <button type="button" class="close" data-dismiss="modal"
-                            style="color: #D80032; padding-right: 20px;">×</button>
+                        <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
                     </div>
 
                     <!-- Modal body -->
@@ -120,8 +132,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn" style="background-color: #D80032; color: white;"
-                            data-dismiss="modal"><strong>Close</strong></button>
+                        <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
                     </div>
 
                 </div>
