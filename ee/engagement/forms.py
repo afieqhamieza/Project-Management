@@ -3,12 +3,13 @@ from .models import *
 from employee.models import Employee
 
 class EngagementForm(forms.ModelForm):
-    staff_options = Employee.objects.values_list('name')                  
-    staff_list = []
-    
-    for x in staff_options:
+    # creating list of staff options
+    staff_list = Employee.objects.values_list('name')                  
+    staff_options = []
+
+    for x in staff_list:
         choice = (x[0], x[0])
-        staff_list.append(choice)
+        staff_options.append(choice)
         
 
     title = forms.CharField(label="Project Title", required=True, widget=forms.TextInput( attrs={}) )
@@ -17,7 +18,7 @@ class EngagementForm(forms.ModelForm):
     endDate = forms.DateField(label="End Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
     # staffId = forms.IntegerField(label="Engaged Employee", required=True, widget=forms.TextInput( attrs={}) )
     # staff = forms.ChoiceField(label="Engaged Employee", required=True, choices=staff_list)
-    staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_list)
+    staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_options)
 
     # clean start date
     def clean_start_date(self):

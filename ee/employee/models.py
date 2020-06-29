@@ -8,14 +8,3 @@ class Employee(models.Model):
     level = models.CharField(max_length=255)
     team = models.CharField(max_length=255)
 
-# senior executive
-# executive
-# senior director
-# director
-# senior manager
-# manager
-# senior advisor
-# advisor
-# senior staff
-# intermediate staff
-# associate staff
