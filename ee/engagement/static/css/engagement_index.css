@@ -73,7 +73,7 @@ h2 small {
     text-decoration: none;
 }
 
-i:hover {
+.hovhighlight:hover {
     background-color: rgba(110, 1, 161, 0.5);
     color: black;
     text-decoration: none;
