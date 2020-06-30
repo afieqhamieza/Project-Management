@@ -9,7 +9,7 @@ class Engagement(models.Model):
     startDate = models.DateField(null = True, blank = True)
     endDate = models.DateField(null = True, blank = True)
     status = models.CharField(max_length=30, null = True, blank = True, default='just started')
-    staff = models.CharField(max_length=30, null = True, blank = True)
+    staff = models.TextField(null = True, blank = True)
     progress = models.IntegerField(null = True, blank=True, default='0')
 
     
