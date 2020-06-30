@@ -22,8 +22,8 @@ class EngagementForm(forms.ModelForm):
     endDate = forms.DateField(label="End Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
     staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_options, widget=forms.Select(
         attrs={
-            "style":' font-size: 14px;padding: 4px 4px;  display: block;  width: 300px;  height: 30px;  background-color: transparent;  border: none;  border-bottom: 1px solid #757575;'        }
-    )  )
+            "style":' font-size: 14px;padding: 4px 4px;  display: block;  width: 300px;  height: 30px;  background-color: transparent;  border: none;  border-bottom: 1px solid #757575;'}
+    ))
 
     # clean start date
     def clean_start_date(self):
