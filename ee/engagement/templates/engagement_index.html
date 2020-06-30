@@ -7,43 +7,43 @@
 </head>
 
 <body>
-
-    <!-- add project button -->
-    <div class="" style="text-align:right; margin-top:1%">
-        <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addProject">
+    <div class="container">
+        <!-- add project button -->
+        <div class="" style="text-align:right; margin-top:1%">
+            <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addProject">
             <div class="add-icon"></div>
             <div class="btn-txt">Add Project</div>
         </button>
-    </div>
-    <!-- end of add project button -->
+        </div>
+        <!-- end of add project button -->
 
-    <!-- add project form -->
-    <div class="container">
-        <!-- The Modal -->
-        <div class="modal fade" id="addProject" style="height: 90%; margin-top: 30px;">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
+        <!-- add project form -->
+        <div class="container">
+            <!-- The Modal -->
+            <div class="modal fade" id="addProject" style="height: 90%; margin-top: 30px;">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">New Project</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">New Project</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form class="cuba" action="" method="post">
-                            {% csrf_token %} {% for field in form %}
-                            <div class="group">
-                                <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                                {{field}}
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>{{field.label}}</label>
-                            </div>
-                            {% endfor %}
-                    </div>
-                    <!-- {% comment %}
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form class="cuba" action="" method="post">
+                                {% csrf_token %} {% for field in form %}
+                                <div class="group">
+                                    <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                                    {{field}}
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>{{field.label}}</label>
+                                </div>
+                                {% endfor %}
+                        </div>
+                        <!-- {% comment %}
                     <div class="group">
                          <input type="text" required="true" id="{{ form.body.id_for_label }}">
                         {{form.body}}
@@ -81,82 +81,82 @@
                         <span class="bar"></span>
                         <label>{{ form.staffId.label }}</label>
                     </div> {% endcomment %} -->
-                    <div class="modal-footer">
-                        <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of add project form -->
-
-    <!-- <h1>Engagements</h1> -->
-    <div class="row">
-        {% for engagement in engagements %}
-        <div class="col-md-3 py-4">
-            <div class="card mb-1">
-                <div class="progress a">
-                    <div class="progress-bar bg-success" role="progressbar" style="width:{{ engagement.progress }}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="card-content">
-                    <p>
-                        <strong>{{ engagement.title }}</strong><br /> {{ engagement.body }}
-                    </p>
-                    <hr />
-                    <p id="dueDate" style="left:0px;"><i class="fas far fa-calendar-alt" style="width: 200px; color: #F8D112;">&nbsp;&nbsp;{{ engagement.endDate }}</i></p>
-                    <div class="icon-block">
-                        <a href="#teamList" data-toggle="modal"><i class="hovhighlight fas fa-users"></i></a>
-                        <a onclick="showDue()"><i class="hovhighlight fas fa-hourglass-half"></i></a>
+                        <div class="modal-footer">
+                            <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-    <!-- end of the Engagement for loop -->
+        <!-- end of add project form -->
 
-
-    <!-- modal to display the team members engaged in the project -->
-    <div class="container">
-        <!-- The Modal -->
-        <div class="modal" id="teamList" style="margin-top: 100px; height: 70%;">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h1 class="modal-title" style="color: #086788;">Project Team Members</h1>
-                        <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
+        <!-- <h1>Engagements</h1> -->
+        <div class="row">
+            {% for engagement in engagements %}
+            <div class="col-md-3 py-4">
+                <div class="card mb-1">
+                    <div class="progress a">
+                        <div class="progress-bar bg-success" role="progressbar" style="width:{{ engagement.progress }}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">First employee</li>
-                            <li class="list-group-item">Second employee</li>
-                            <li class="list-group-item">Third employee</li>
-                            <li class="list-group-item">Fourth employee</li>
-                            <li class="list-group-item">Fifth employee</li>
-                            <li class="list-group-item">Sixth employee</li>
-                            <li class="list-group-item">Seventh employee</li>
-                            <li class="list-group-item">Eighth employee</li>
-                            <li class="list-group-item">Ninth employee</li>
-                            <li class="list-group-item">Tenth employee</li>
-                        </ul>
+                    <div class="card-content">
+                        <p>
+                            <strong>{{ engagement.title }}</strong><br /> {{ engagement.body }}
+                        </p>
+                        <hr />
+                        <p id="dueDate" style="left:0px;"><i class="fas far fa-calendar-alt" style="width: 200px; color: #F8D112;">&nbsp;&nbsp;{{ engagement.endDate }}</i></p>
+                        <div class="icon-block">
+                            <a href="#teamList" data-toggle="modal"><i class="hovhighlight fas fa-users"></i></a>
+                            <a onclick="showDue()"><i class="hovhighlight fas fa-hourglass-half"></i></a>
+                        </div>
                     </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- end of the Engagement for loop -->
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
+
+        <!-- modal to display the team members engaged in the project -->
+        <div class="container">
+            <!-- The Modal -->
+            <div class="modal" id="teamList" style="margin-top: 100px; height: 70%;">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h1 class="modal-title" style="color: #086788;">Project Team Members</h1>
+                            <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">First employee</li>
+                                <li class="list-group-item">Second employee</li>
+                                <li class="list-group-item">Third employee</li>
+                                <li class="list-group-item">Fourth employee</li>
+                                <li class="list-group-item">Fifth employee</li>
+                                <li class="list-group-item">Sixth employee</li>
+                                <li class="list-group-item">Seventh employee</li>
+                                <li class="list-group-item">Eighth employee</li>
+                                <li class="list-group-item">Ninth employee</li>
+                                <li class="list-group-item">Tenth employee</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- end of modal -->
+
     </div>
-    <!-- end of modal -->
-
-
     <script>
         // function showDue() {
         //     document.getElementById("dueDate").innerHTML = "Have a nice day!";

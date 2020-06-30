@@ -8,140 +8,140 @@
 </head>
 
 <body>
-
-    <!-- add employee button -->
-    <div class="" style="text-align:right; margin-top:1%">
-        <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addEmployee">
+    <div class="container">
+        <!-- add employee button -->
+        <div class="" style="text-align:right; margin-top:1%">
+            <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addEmployee">
             <div class="add-icon"></div>
             <div class="btn-txt">Add Employee</div>
         </button>
-    </div>
-    <!-- end of add employee button -->
+        </div>
+        <!-- end of add employee button -->
 
-    <!-- add employee form  -->
-    <div class="container">
-        <!-- The Modal -->
-        <div class="modal fade" id="addEmployee">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
+        <!-- add employee form  -->
+        <div class="container">
+            <!-- The Modal -->
+            <div class="modal fade" id="addEmployee">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">New Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <form class="cuba" action="" method="post">
-                        {% csrf_token %} {% for field in form %}
-                        <div class="group">
-                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                            {{field}}
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
-                            <label>{{field.label}}</label>
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">New Employee</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
-                        {% endfor %}
 
-                        <div class="group">
-                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                            <!-- <label>{{form.level.label}}</label>
+                        <!-- Modal body -->
+                        <form class="cuba" action="" method="post">
+                            {% csrf_token %} {% for field in form %}
+                            <div class="group">
+                                <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                                {{field}}
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{field.label}}</label>
+                            </div>
+                            {% endfor %}
+
+                            <div class="group">
+                                <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                                <!-- <label>{{form.level.label}}</label>
                             <span class="highlight"></span>
                             <span class="bar">{{form.level}}</span> -->
 
 
-                            <div class="floating-label">
-                                {{form.level}}
-                                <span class="highlight1"></span>
-                                <label>Select</label>
+                                <div class="floating-label">
+                                    {{form.level}}
+                                    <span class="highlight1"></span>
+                                    <label>Select</label>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} end of add employee form {% endcomment %}
+
+        <!-- card that display list of employee -->
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for employee in employees %}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-1 ">
+                                    <i class='eIcon fas fa-user'></i>
+                                </div>
+                                <div class="col-9 ">
+                                    <h5><strong>{{ employee.name }}</strong></h5>
+                                    <div class="list-inline">
+                                        <span class="list-inline-item">{{ employee.staffId }}</span>
+                                        <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
+                                        <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 ">
+                                    <!-- <i class='tIcon fas fa-tasks'>&nbsp;3</i> -->
+                                    <div class="tIcon ">
+                                        <a href="#myModal" data-toggle="modal"><i class="fas fa-tasks"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- end of employee list card -->
 
+        <!-- modal to display the team members engaged in the project -->
+        <div class="container">
+            <!-- The Modal -->
+            <div class="modal" id="myModal" style="margin-top: 100px; height: 70%;">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h1 class="modal-title" style="color: #086788;">Engaged Project</h1>
+                            <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">First Project</li>
+                                <li class="list-group-item">Second Project</li>
+                                <li class="list-group-item">Third Project</li>
+                                <li class="list-group-item">Fourth Project</li>
+                                <li class="list-group-item">Fifth Project</li>
+                                <li class="list-group-item">Sixth Project</li>
+                                <li class="list-group-item">Seventh Project</li>
+                                <li class="list-group-item">Eighth Project</li>
+                                <li class="list-group-item">Ninth Project</li>
+                                <li class="list-group-item">Tenth Project</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modal footer -->
                         <div class="modal-footer">
-                            <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
+                            <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- end of modal -->
+
     </div>
-    {% comment %} end of add employee form {% endcomment %}
-
-    <!-- card that display list of employee -->
-    <div class="card">
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                {% for employee in employees %}
-                <li class="list-group-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-1 ">
-                                <i class='eIcon fas fa-user'></i>
-                            </div>
-                            <div class="col-9 ">
-                                <h5><strong>{{ employee.name }}</strong></h5>
-                                <div class="list-inline">
-                                    <span class="list-inline-item">{{ employee.staffId }}</span>
-                                    <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
-                                    <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
-                                </div>
-                            </div>
-                            <div class="col-2 ">
-                                <!-- <i class='tIcon fas fa-tasks'>&nbsp;3</i> -->
-                                <div class="tIcon ">
-                                    <a href="#myModal" data-toggle="modal"><i class="fas fa-tasks"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <!-- end of employee list card -->
-
-    <!-- modal to display the team members engaged in the project -->
-    <div class="container">
-        <!-- The Modal -->
-        <div class="modal" id="myModal" style="margin-top: 100px; height: 70%;">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h1 class="modal-title" style="color: #086788;">Engaged Project</h1>
-                        <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">First Project</li>
-                            <li class="list-group-item">Second Project</li>
-                            <li class="list-group-item">Third Project</li>
-                            <li class="list-group-item">Fourth Project</li>
-                            <li class="list-group-item">Fifth Project</li>
-                            <li class="list-group-item">Sixth Project</li>
-                            <li class="list-group-item">Seventh Project</li>
-                            <li class="list-group-item">Eighth Project</li>
-                            <li class="list-group-item">Ninth Project</li>
-                            <li class="list-group-item">Tenth Project</li>
-                        </ul>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of modal -->
-
-
 </body>
 
 {% endblock %}
