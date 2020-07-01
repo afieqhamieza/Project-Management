@@ -133,16 +133,12 @@
                         <!-- Modal body -->
                         <div class="modal-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">First employee</li>
-                                <li class="list-group-item">Second employee</li>
-                                <li class="list-group-item">Third employee</li>
-                                <li class="list-group-item">Fourth employee</li>
-                                <li class="list-group-item">Fifth employee</li>
-                                <li class="list-group-item">Sixth employee</li>
-                                <li class="list-group-item">Seventh employee</li>
-                                <li class="list-group-item">Eighth employee</li>
-                                <li class="list-group-item">Ninth employee</li>
-                                <li class="list-group-item">Tenth employee</li>
+                                {% for engagement in engagements %} {{engagement.staff}}<br/>
+                                <!-- {% for x in engagement.staff%}
+                                <li class="list-group-item">{{x}}</li>
+
+                                {%endfor%}  -->
+                                {% endfor %}
                             </ul>
                         </div>
 

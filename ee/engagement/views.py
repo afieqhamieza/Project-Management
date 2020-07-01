@@ -7,6 +7,9 @@ from django.contrib import messages
 
 # Create your views here.
 
+#many to one - foreign key
+#many to many - manytomanyfield
+
 #a snippet of information of each engagement
 def engagement_index(request):
     engagement = Engagement.objects.all()   #the query
@@ -36,9 +39,3 @@ def engagement_detail(request, pk):
     }
 
     return render(request, 'engagement_detail.html', context)
-
-def countObjects(request):
-    count= Engagement.objects.all().count()
-    context= {'count': count}
-        
-    return render(request, 'engagement_index.html', context)
