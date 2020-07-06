@@ -11,9 +11,9 @@
         <!-- add project button -->
         <div class="" style="text-align:right; margin-top:1%">
             <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addProject">
-            <div class="add-icon"></div>
-            <div class="btn-txt">Add Project</div>
-        </button>
+                <div class="add-icon"></div>
+                <div class="btn-txt">Add Project</div>
+            </button>
         </div>
         <!-- end of add project button -->
 
@@ -32,16 +32,16 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form class="cuba" action="" method="post">
+                            <!-- <form class="cuba" action="" method="post">
                                 {% csrf_token %} {% for field in form %}
-                                <div class="group">
-                                    <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                                    {{field}}
+                                <div class="group"> -->
+                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                            <!-- {{field}}
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>{{field.label}}</label>
                                 </div>
-                                {% endfor %}
+                                {% endfor %} -->
                         </div>
                         <!-- {% comment %}
                     <div class="group">
@@ -81,10 +81,10 @@
                         <span class="bar"></span>
                         <label>{{ form.staffId.label }}</label>
                     </div> {% endcomment %} -->
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
                         </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -132,13 +132,12 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <ul class="list-group list-group-flush">
-                                {% for engagement in engagements %} {{engagement.staff}}<br/>
-                                <!-- {% for x in engagement.staff%}
-                                <li class="list-group-item">{{x}}</li>
-
-                                {%endfor%}  -->
-                                {% endfor %}
+                            <ul class="list-group">
+                                {% for engagement in engagements %}
+                                <li class="list-group-item">{{ engagement.title }}</li>
+                                {% for staff in engagement.staff.all.values %}
+                                <li class="list-group-item">{{ staff }}</li>
+                                {% endfor %} {% endfor %}
                             </ul>
                         </div>
 
