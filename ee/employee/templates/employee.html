@@ -117,16 +117,11 @@
                         <!-- Modal body -->
                         <div class="modal-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">First Project</li>
-                                <li class="list-group-item">Second Project</li>
-                                <li class="list-group-item">Third Project</li>
-                                <li class="list-group-item">Fourth Project</li>
-                                <li class="list-group-item">Fifth Project</li>
-                                <li class="list-group-item">Sixth Project</li>
-                                <li class="list-group-item">Seventh Project</li>
-                                <li class="list-group-item">Eighth Project</li>
-                                <li class="list-group-item">Ninth Project</li>
-                                <li class="list-group-item">Tenth Project</li>
+                                {% for employee in employees %}
+                                <li class="list-group-item">{{ employee.name }}</li>
+                                {% for proj in employee.engagement_set.all.values %}
+                                <li class="list-group-item">{{ proj.title }}</li>
+                                {% endfor %} {% endfor %}
                             </ul>
                         </div>
 

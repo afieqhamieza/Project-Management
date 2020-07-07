@@ -16,6 +16,7 @@ def engagement_index(request):
         form = EngagementForm(request.POST) #creating instance of the form
     
         if form.is_valid():
+            import pdb; pdb.set_trace()
             form.save()
 
             title_in = request.POST.get('title')
@@ -26,9 +27,9 @@ def engagement_index(request):
                 name_in, id_in = x.replace(")","").split(" (")               #split the strings 
                 id_in = int(id_in)
 
-                for e in employee_list:
-                    if e.name == name_in and e.staffId == id_in:
-                        staff_in = e
+                for emp in employee_list:
+                    if emp.name == name_in and emp.staffId == id_in:
+                        staff_in = emp
 
                 e1.staff.add(staff_in)
 

@@ -8,7 +8,7 @@ from django.contrib import messages
 # Create your views here.
 
 def employee(request):
-    employee = Employee.objects.all()
+    employee_list = Employee.objects.all()
 
     if (request.method == 'POST') and ("addEmp" in request.POST):
         form = EmployeeForm(request.POST)
@@ -21,8 +21,9 @@ def employee(request):
         form = EmployeeForm()
 
     context = {
-        'employees' : employee,
+        'employees' : employee_list,
         'form': form,
+
     }
     
     return render(request, 'employee.html', context)
