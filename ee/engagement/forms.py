@@ -35,4 +35,4 @@ class EngagementForm(forms.ModelForm):
     class Meta:
         model = Engagement
         fields = ('__all__')
-        exclude = [ 'status', 'progress' ]
+        exclude = [ 'status', 'progress', 'staff' ]

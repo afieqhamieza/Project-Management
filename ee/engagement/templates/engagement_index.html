@@ -32,16 +32,16 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <!-- <form class="cuba" action="" method="post">
+                            <form class="cuba" action="" method="post">
                                 {% csrf_token %} {% for field in form %}
-                                <div class="group"> -->
-                            <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                            <!-- {{field}}
+                                <div class="group">
+                                    <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
+                                    {{field}}
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>{{field.label}}</label>
                                 </div>
-                                {% endfor %} -->
+                                {% endfor %}
                         </div>
                         <!-- {% comment %}
                     <div class="group">
@@ -81,10 +81,10 @@
                         <span class="bar"></span>
                         <label>{{ form.staffId.label }}</label>
                     </div> {% endcomment %} -->
-                        <!-- <div class="modal-footer">
+                        <div class="modal-footer">
                             <input type="submit" name="addProj" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto;">
                         </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                                 {% for engagement in engagements %}
                                 <li class="list-group-item">{{ engagement.title }}</li>
                                 {% for staff in engagement.staff.all.values %}
-                                <li class="list-group-item">{{ staff }}</li>
+                                <li class="list-group-item">{{ staff.name }}&nbsp;({{ staff.staff_id }})</li>
                                 {% endfor %} {% endfor %}
                             </ul>
                         </div>
