@@ -136,7 +136,7 @@
                                 {% for engagement in engagements %}
                                 <li class="list-group-item">{{ engagement.title }}</li>
                                 {% for staff in engagement.staff.all.values %}
-                                <li class="list-group-item">{{ staff.name }}&nbsp;({{ staff.staff_id }})</li>
+                                <li class="list-group-item">{{ staff.name }}&nbsp;({{ staff.staffId }})</li>
                                 {% endfor %} {% endfor %}
                             </ul>
                         </div>

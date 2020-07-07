@@ -1,4 +1,5 @@
 from django.db import models
+from employee.models import Employee
 
 # Create your models here.
 
@@ -14,8 +15,8 @@ class Engagement(models.Model):
     startDate = models.DateField(null = True, blank = True)
     endDate = models.DateField(null = True, blank = True)
     status = models.CharField(max_length=30, null = True, blank = True, default='just started')
-    staff = models.ManyToManyField(Staff)
-    progress = models.IntegerField(null = True, blank=True, default='0')
+    staff = models.ManyToManyField(Employee)
+    progress = models.IntegerField(null = True, blank=True, default='0') 
 
 
 
