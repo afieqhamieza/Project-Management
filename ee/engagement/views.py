@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from engagement.models import Engagement, Staff
+from engagement.models import Engagement
 from employee.models import Employee
 from django.views.generic import CreateView
 from .forms import EngagementForm

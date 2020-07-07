@@ -4,9 +4,9 @@ from employee.models import Employee
 # Create your models here.
 
 # Create your models here.
-class Staff(models.Model):
-    name = models.TextField(null = True, blank = True)
-    staff_id = models.IntegerField(null = True, blank=True, default='0')
+# class Staff(models.Model):
+#     name = models.TextField(null = True, blank = True)
+#     staff_id = models.IntegerField(null = True, blank=True, default='0')
 
 class Engagement(models.Model):
     title = models.CharField(max_length=255,null = True, blank = True) 
