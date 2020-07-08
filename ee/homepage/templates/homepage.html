@@ -16,10 +16,11 @@
                     <div class="item html">
                         <h2 class="doughWrite">PROPOSED</h2>
                         <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                         <g>
-                          <title>Layer 1</title>
-                          <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#FF7A0D" fill="none"/>
-                         </g>
+                            <g>
+                                <title>Layer 1</title>
+                                <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                                    stroke="#FF7A0D" fill="none" />
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -30,10 +31,11 @@
                     <div class="item html">
                         <h2 class="doughWrite">ACTIVE</h2>
                         <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                         <g>
-                          <title>Layer 1</title>
-                          <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#0F8B8D" fill="none"/>
-                         </g>
+                            <g>
+                                <title>Layer 1</title>
+                                <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                                    stroke="#0F8B8D" fill="none" />
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -44,10 +46,11 @@
                     <div class="item html">
                         <h2 class="doughWrite">COMPLETED</h2>
                         <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                         <g>
-                          <title>Layer 1</title>
-                          <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#47a025" fill="none"/>
-                         </g>
+                            <g>
+                                <title>Layer 1</title>
+                                <circle class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8"
+                                    stroke="#47a025" fill="none" />
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -74,7 +77,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <div class="numCount" style="color: #D80032; background-color: #d8003252;">11</div>
+                    <div class="numCount" style="color: #0F8B8D; background-color: #0f8b8d4b;">11</div>
                     &nbsp;FUTURE EVENTS
                 </div>
             </div>
@@ -87,10 +90,26 @@
             <div class="col-sm-4">
                 <div class="timelineDiv" style="overflow-y: scroll;">
                     <div class="timeline_header">
-                        <h4 style="text-align: center; margin: 30px; font-weight: bold; letter-spacing: 2px; color: brown;">TIMELINE</h4>
+                        <h4 style="text-align: center; margin: 30px; font-weight: bold; letter-spacing: 2px; color: brown;">
+                            TIMELINE</h4>
                     </div>
                     <div class="timeline_content">
                         <div class="timeline" style="margin-top: 30px; margin-bottom: 30px;">
+                            {% for project in eng_byEndDate %} {% if forloop.counter|divisibleby:2 %}
+                            <div class="container left">
+                                <div class="content">
+                                    <h2>{{project.title}}</h2>
+                                    <p>{{project.endDate}}</p>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="container right">
+                                <div class="content">
+                                    <h2>{{project.title}}</h2>
+                                    <p>{{project.endDate}}</p>
+                                </div>
+                            </div>
+                            {% endif %} {% endfor %}
                             <div class="container left">
                                 <div class="content">
                                     <h2>Project A</h2>
@@ -135,18 +154,35 @@
 
             <!-- recent projects -->
             <div class="col-sm-8">
-                <div class="recentProj">
+                <div class="recentProj" style="overflow-y: scroll;">
                     <div class="recentProj_header">
-                        <h4 style="text-align: center; margin: 30px; padding: 30px; font-weight: bold; letter-spacing: 2px; color: brown;">RECENT PROJECT</h4>
+                        <h4 style="text-align: center; margin: 30px; font-weight: bold; letter-spacing: 2px; color: brown;">
+                            RECENT PROJECT</h4>
                     </div>
-                    <div class="recentProj_content">
-
+                    <div class="recentProj_content" style="padding: 30px;">
+                        <ul class="list-group list-group-flush">
+                            {% for project in latest7 %}
+                            <li class="list-group-item">
+                                {{ project.title }}
+                                <i class='tIcon fas fa-users' data-toggle="tooltip" data-placement="right" title={{ project.staff.values|length }}></i>
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
             <!-- end of recent projects -->
         </div>
     </div>
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 
 
