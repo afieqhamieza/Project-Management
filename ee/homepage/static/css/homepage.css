@@ -124,7 +124,7 @@ svg {
 
 .oneLine .card {
     margin: 30px;
-    width: 12%;
+    width: auto;
     display: inline-block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -132,8 +132,15 @@ svg {
 }
 
 .oneLine .card .card-body {
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: large;
     color: brown;
+}
+
+.oneLine .numCount {
+    display: inline;
+    border-radius: 50%;
+    padding: 10px;
 }
 
 
