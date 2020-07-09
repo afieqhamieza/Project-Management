@@ -67,38 +67,57 @@ svg {
     stroke-dashoffset: 440;
 }
 
-.html .circle_animation {
-    -webkit-animation: html 1s ease-out forwards;
-    animation: html 1s ease-out forwards;
+.doughnut_proposed .circle_animation {
+    -webkit-animation: doughnut_proposed 1s ease-out forwards;
+    animation: doughnut_proposed 1s ease-out forwards;
 }
 
-.css .circle_animation {
-    -webkit-animation: css 1s ease-out forwards;
-    animation: css 1s ease-out forwards;
+.doughnut_indevelopment .circle_animation {
+    -webkit-animation: doughnut_indevelopment 1s ease-out forwards;
+    animation: doughnut_indevelopment 1s ease-out forwards;
 }
 
-@-webkit-keyframes html {
+.doughnut_completed .circle_animation {
+    -webkit-animation: doughnut_completed 1s ease-out forwards;
+    animation: doughnut_completed 1s ease-out forwards;
+}
+
+@-webkit-keyframes doughnut_proposed {
+    to {
+        stroke-dashoffset: 310;
+        /* 50% would be 220 (half the initial value specified above) */
+    }
+}
+
+@keyframes doughnut_proposed {
+    to {
+        stroke-dashoffset: 310;
+    }
+}
+
+@-webkit-keyframes doughnut_indevelopment {
     to {
         stroke-dashoffset: 80;
         /* 50% would be 220 (half the initial value specified above) */
     }
 }
 
-@keyframes html {
+@keyframes doughnut_indevelopment {
     to {
         stroke-dashoffset: 80;
     }
 }
 
-@-webkit-keyframes css {
+@-webkit-keyframes doughnut_completed {
     to {
-        stroke-dashoffset: 160;
+        stroke-dashoffset: 240;
+        /* 50% would be 220 (half the initial value specified above) */
     }
 }
 
-@keyframes css {
+@keyframes doughnut_completed {
     to {
-        stroke-dashoffset: 160;
+        stroke-dashoffset: 240;
     }
 }
 
