@@ -83,8 +83,9 @@ h2 small {
     color: #FF7A0D;
 }
 
-.fa-hourglass-half {
+a .fa-pen {
     color: #D80032;
+    text-decoration: none;
 }
 
 
