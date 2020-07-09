@@ -14,7 +14,7 @@ class Engagement(models.Model):
     # add on
     startDate = models.DateField(null = True, blank = True)
     endDate = models.DateField(null = True, blank = True)
-    status = models.CharField(max_length=30, null = True, blank = True, default='just started')
+    status = models.CharField(max_length=30, null = True, blank = True, default='Proposed')
     staff = models.ManyToManyField(Employee)
     progress = models.IntegerField(null = True, blank=True, default='0') 
 

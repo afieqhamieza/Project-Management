@@ -19,7 +19,6 @@ def engagement_index(request):
         form = EngagementForm(request.POST) #creating instance of the form
     
         if form.is_valid():
-            import pdb; pdb.set_trace()
             form.save()
 
             title_in = request.POST.get('title')
@@ -38,6 +37,22 @@ def engagement_index(request):
 
             messages.success(request, f'{"Form submission successful"}')
             return redirect('engagement_index')                             #here should enter a new url where it will go if successful
+    
+        else:
+            messages.error(request, f'{"Form submission not valid - data not saved"}')
+            context = {     #context dictionary
+                'engagements':  engagement_list,
+                'form': form,
+                'today': today,
+            }
+            return render(request, 'engagement_index.html', context)
+
+            #instance 
+            # re render balik
+            #guna pk
+
+
+    
     else: # means GET
         form = EngagementForm()
     
