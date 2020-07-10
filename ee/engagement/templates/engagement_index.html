@@ -107,7 +107,7 @@
                         <p id="dueDate" style="left:0px;"><i class="fas far fa-calendar-alt" style="width: 200px; color: #F8D112;">&nbsp;&nbsp;{{ engagement.endDate }}</i></p>
                         <div class="icon-block">
                             <a href="#teamList" data-toggle="modal"><i class="hovhighlight fas fa-users"></i></a>
-                            <a href="" data-toggle="" style="color: #D80032; text-decoration: none;"><i class="hovhighlight fas fa-pen"></i></a>
+                            <a href="#editProject" data-toggle="modal" style="color: #D80032; text-decoration: none;"><i class="hovhighlight fas fa-pen"></i></a>
                             <!--|timeuntil: engagement.startDate -->
                         </div>
                     </div>
@@ -152,12 +152,85 @@
         </div>
         <!-- end of modal -->
 
+        <!-- edit project card -->
+
+        <div class="modal" id="editProject">
+            <div class="modal-dialog modal-dialog-centered" style="justify-content: center;">
+                <div class="modal-content">
+
+                    <!-- Modal body -->
+
+
+                    <div class="card mb-1" style="height: 600px;">
+
+                        <div class="card-content">
+                            <form class="editProjectCard">
+                                <label for="pname" class="inline-block"></label>
+                                <strong><input type="text" id="pname" name="pname" value="Project Edit" class="inline-block"></strong>
+                                <label for="pdesc"></label>
+                                <input type="text" id="pdesc" name="pdesc" value="edit this edit that" style="margin-top: 0px;">
+                            </form>
+
+                            <hr />
+
+                            <form action="" class="editProjectCard_sec">
+                                <div class="input-group mb-3" style="border: 0; border-radius: 0px; outline: none; -webkit-appearance: none;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas far fa-calendar-alt" style="color: #F8D112;"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="March 03, 2021" id="editDue" name="editDue">
+                                </div>
+
+                                <div class="input-group mb-3" style="border: 0; border-radius: 0px; outline: none; -webkit-appearance: none;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-ellipsis-h" style="color: #47a025;"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Progress: 40%" id="editDue" name="editDue">
+                                </div>
+
+                                <div class="input-group mb-3" style="border: 0; border-radius: 0px; outline: none; -webkit-appearance: none;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="hovhighlight fas fa-users" style="color: #FF7A0D;"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Fie, Luis, Cornor, Cameo" id="editDue" name="editDue">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" style="position: absolute; bottom: 20px; right: 20px; background-color: #D80032; outline: none; border: none;">UPDATE</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- end of edit project card -->
+
+
     </div>
     <script>
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
+
+        $(document).ready(function() {
+
+            const $valueSpan = $('.valueSpan2');
+            const $value = $('#customRange11');
+            $valueSpan.html($value.val());
+            $value.on('input change', () => {
+
+                $valueSpan.html($value.val());
+            });
+        });
     </script>
+
 
 </body>
 

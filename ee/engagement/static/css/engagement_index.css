@@ -334,3 +334,18 @@ input:focus~.highlight {
 
 
 /* end of add form styling */
+
+.editProjectCard input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px grey;
+    background-color: none;
+    color: black;
+}
+
+.editProjectCard_sec .input-group-text {
+    background: none;
+    width: 100%;
+}
