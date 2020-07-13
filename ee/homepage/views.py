@@ -18,7 +18,7 @@ def homepage(request):
 
     context= {
         'engCount': engagement_count,
-        'empCount': engagement_count,
+        'empCount': employee_count,
         'latest7': latest7,
         'eng_byEndDate': engagement_byEndDate,
     }
