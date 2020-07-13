@@ -4,7 +4,6 @@ from employee.models import Employee
 from django.views.generic import CreateView
 from .forms import EngagementForm
 from django.contrib import messages
-from datetime import date
 
 # Create your views here.
 
@@ -13,7 +12,6 @@ def engagement_index(request):
     engagement_list = Engagement.objects.all()   #the query
     employee_list = Employee.objects.all()
 
-    today = date.today()
     
     if (request.method == 'POST') and ("addProj" in request.POST):
         form = EngagementForm(request.POST) #creating instance of the form
@@ -43,7 +41,6 @@ def engagement_index(request):
             context = {     #context dictionary
                 'engagements':  engagement_list,
                 'form': form,
-                'today': today,
             }
             return render(request, 'engagement_index.html', context)
 
@@ -59,7 +56,6 @@ def engagement_index(request):
     context = {     #context dictionary
         'engagements':  engagement_list,
         'form': form,
-        'today': today,
     }
     return render(request, 'engagement_index.html', context)
 
