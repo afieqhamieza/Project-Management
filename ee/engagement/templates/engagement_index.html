@@ -169,10 +169,10 @@
 
                         <div class="card-content">
                             <form class="editProjectCard">
-                                <label for="pname" class="inline-block"></label>
-                                <strong><input type="text" id="pname" name="pname" value="project[1]" class="inline-block"></strong>
-                                <label for="pdesc"></label>
-                                <input type="text" id="pdesc" name="pdesc" value="edit this edit that" style="margin-top: 0px;">
+                                <label for="peditname" class="inline-block"></label>
+                                <strong><input type="text" id="peditname" name="peditname" value="project[1]" class="inline-block"></strong>
+                                <label for="peditdesc"></label>
+                                <input type="text" id="peditdesc" name="peditdesc" value="edit this edit that" style="margin-top: 0px;">
                             </form>
 
                             <hr />
@@ -184,7 +184,7 @@
                                             <i class="fas far fa-calendar-alt" style="color: #F8D112;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="March 03, 2021" id="editDue" name="editDue">
+                                    <input type="text" class="form-control" placeholder="March 03, 2021" id="peditDue" name="peditDue">
                                 </div>
 
                                 <div class="input-group mb-3" style="border: 0; border-radius: 0px; outline: none; -webkit-appearance: none;">
@@ -193,7 +193,7 @@
                                             <i class="fas fa-ellipsis-h" style="color: #47a025;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Progress: 40%" id="editDue" name="editDue">
+                                    <input type="text" class="form-control" placeholder="Progress: 40%" id="peditprogress" name="peditprogress">
                                 </div>
 
                                 <div class="input-group mb-3" style="border: 0; border-radius: 0px; outline: none; -webkit-appearance: none;">
@@ -202,7 +202,7 @@
                                             <i class="hovhighlight fas fa-users" style="color: #FF7A0D;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Fie, Luis, Cornor, Cameo" id="editDue" name="editDue">
+                                    <input type="text" class="form-control" placeholder="Fie, Luis, Cornor, Cameo" id="peditteam" name="peditteam">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary" style="position: absolute; bottom: 20px; right: 20px; background-color: #D80032; outline: none; border: none;">UPDATE</button>
@@ -230,10 +230,13 @@
                 success: function(results){
                     if (results.success == "True") {
                         console.log(results)
-                        console.log(results.project[3])
+
                         // here should fire up modal and send data to modal
-                        temp = $("#editProject").data(results.project);
-                        console.log(temp)
+                        $("#peditname").attr("value", results.project[1]);
+                        $("#peditdesc").attr("value", results.project[2]);
+                        $("#peditDue").attr("placeholder", results.project[4]);
+                        $("#peditprogress").attr("placeholder", results.project[6]);
+
                         $("#editProject").modal('show');
                     }
                     else { 
