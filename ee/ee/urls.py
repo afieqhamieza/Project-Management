@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('homepage.urls')), #they delete this because delete hello world
+    path('', include('homepage.urls')),
     path("engagements/", include("engagement.urls")), 
     path("employee/", include("employee.urls")), 
  ]

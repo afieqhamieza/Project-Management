@@ -17,6 +17,7 @@
         </div>
         <!-- end of add project button -->
 
+
         <!-- add project form -->
         <div class="container">
             <!-- The Modal -->
@@ -91,10 +92,15 @@
         </div>
         <!-- end of add project form -->
 
+
         <!-- <h1>Engagements</h1> -->
         <div class="row">
             {% for engagement in engagements %}
+
             <div class="col-md-3 py-4">
+                {% comment %} <div class="hellO" style="display:none">
+                    {{ engagement.id }}
+                </div> {% endcomment %}
                 <div class="card mb-1">
                     <div class="progress a">
                         <div class="progress-bar bg-success" role="progressbar" style="width:{{ engagement.progress }}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -103,12 +109,12 @@
                         <p>
                             <strong>{{ engagement.title }}</strong><br /> {{ engagement.body }}
                         </p>
+                        
                         <hr />
                         <p id="dueDate" style="left:0px;"><i class="fas far fa-calendar-alt" style="width: 200px; color: #F8D112;">&nbsp;&nbsp;{{ engagement.endDate }}</i></p>
                         <div class="icon-block">
                             <a href="#teamList" data-toggle="modal"><i class="hovhighlight fas fa-users"></i></a>
-                            <a href="#editProject" data-toggle="modal" style="color: #D80032; text-decoration: none;"><i class="hovhighlight fas fa-pen"></i></a>
-                            <!--|timeuntil: engagement.startDate -->
+                            <a class="buttonEditProj" onclick="loadEngagementId({{ engagement.id }})" style="color: #D80032; text-decoration: none;" button_proj_id={{engagement.id}}><i class="hovhighlight fas fa-pen"></i></a>
                         </div>
                     </div>
                 </div>
@@ -152,21 +158,19 @@
         </div>
         <!-- end of modal -->
 
-        <!-- edit project card -->
 
+        <!-- edit project card -->
         <div class="modal" id="editProject">
             <div class="modal-dialog modal-dialog-centered" style="justify-content: center;">
                 <div class="modal-content">
 
                     <!-- Modal body -->
-
-
                     <div class="card mb-1" style="height: 600px;">
 
                         <div class="card-content">
                             <form class="editProjectCard">
                                 <label for="pname" class="inline-block"></label>
-                                <strong><input type="text" id="pname" name="pname" value="Project Edit" class="inline-block"></strong>
+                                <strong><input type="text" id="pname" name="pname" value="project[1]" class="inline-block"></strong>
                                 <label for="pdesc"></label>
                                 <input type="text" id="pdesc" name="pdesc" value="edit this edit that" style="margin-top: 0px;">
                             </form>
@@ -205,30 +209,44 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
         <!-- end of edit project card -->
-
 
     </div>
     <script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+        function loadEngagementId(id_in) {
+            var engagementId_editButton = id_in;
+            console.log(engagementId_editButton)
+            $.ajax({
+                url: "{% url 'getengagementid' %}", 
+                type : "POST",
+                data : {
+                    "pk_in" : engagementId_editButton,
+                },
+                dataType : "json",
 
-        $(document).ready(function() {
+                success: function(results){
+                    if (results.success == "True") {
+                        console.log(results)
+                        console.log(results.project[3])
+                        // here should fire up modal and send data to modal
+                        temp = $("#editProject").data(results.project);
+                        console.log(temp)
+                        $("#editProject").modal('show');
+                    }
+                    else { 
+                        showErrorMessage() ;
+                    } 
+                },
 
-            const $valueSpan = $('.valueSpan2');
-            const $value = $('#customRange11');
-            $valueSpan.html($value.val());
-            $value.on('input change', () => {
-
-                $valueSpan.html($value.val());
+                headers:{
+                    "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()
+                },
             });
-        });
+        };
+
     </script>
 
 

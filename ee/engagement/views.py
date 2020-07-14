@@ -4,12 +4,13 @@ from employee.models import Employee
 from django.views.generic import CreateView
 from .forms import EngagementForm
 from django.contrib import messages
+from django.http import JsonResponse
 
 # Create your views here.
 
 #a snippet of information of each engagement
 def engagement_index(request):
-    engagement_list = Engagement.objects.all()   #the query
+    engagement_list = Engagement.objects.all()   
     employee_list = Employee.objects.all()
 
     
@@ -59,6 +60,7 @@ def engagement_index(request):
     }
     return render(request, 'engagement_index.html', context)
 
+
 #a detail view that shows more of information
 def engagement_detail(request, pk):
     engagement = Engagement.objects.get(pk=pk)
@@ -67,3 +69,18 @@ def engagement_detail(request, pk):
     }
 
     return render(request, 'engagement_detail.html', context)
+
+
+def getengagementid(request):
+    if request.method == "POST":
+        pk_in = request.POST.get("pk_in")
+
+        #apply filter here to get the specific object   
+        engagement_list = Engagement.objects.all()   
+        specific_engagement = engagement_list.filter(id=pk_in)
+        xx= specific_engagement.values_list()
+        yy=xx[0]
+
+        results = { "success":"True", "project":yy }
+        import pdb; pdb.set_trace()
+        return JsonResponse(results)
