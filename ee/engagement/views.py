@@ -79,7 +79,7 @@ def getengagementid(request):
         engagement_list = Engagement.objects.all()   
         specific_engagement = engagement_list.filter(id=pk_in)
         specific_eng_values= specific_engagement.values_list()
-        eng=xx[0]
+        eng=specific_eng_values[0]
 
         results = { "success":"True", "project":eng }
         return JsonResponse(results)
