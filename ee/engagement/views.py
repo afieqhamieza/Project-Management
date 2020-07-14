@@ -78,9 +78,8 @@ def getengagementid(request):
         #apply filter here to get the specific object   
         engagement_list = Engagement.objects.all()   
         specific_engagement = engagement_list.filter(id=pk_in)
-        xx= specific_engagement.values_list()
-        yy=xx[0]
+        specific_eng_values= specific_engagement.values_list()
+        eng=xx[0]
 
-        results = { "success":"True", "project":yy }
-        import pdb; pdb.set_trace()
+        results = { "success":"True", "project":eng }
         return JsonResponse(results)

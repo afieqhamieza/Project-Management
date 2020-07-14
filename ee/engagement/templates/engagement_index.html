@@ -218,7 +218,6 @@
     <script>
         function loadEngagementId(id_in) {
             var engagementId_editButton = id_in;
-            console.log(engagementId_editButton)
             $.ajax({
                 url: "{% url 'getengagementid' %}", 
                 type : "POST",
@@ -229,8 +228,6 @@
 
                 success: function(results){
                     if (results.success == "True") {
-                        console.log(results)
-
                         // here should fire up modal and send data to modal
                         $("#peditname").attr("value", results.project[1]);
                         $("#peditdesc").attr("value", results.project[2]);
