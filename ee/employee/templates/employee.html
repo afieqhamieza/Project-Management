@@ -12,9 +12,9 @@
         <!-- add employee button -->
         <div class="" style="text-align:right; margin-top:1%">
             <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addEmployee">
-            <div class="add-icon"></div>
-            <div class="btn-txt">Add Employee</div>
-        </button>
+                <div class="add-icon"></div>
+                <div class="btn-txt">Add Employee</div>
+            </button>
         </div>
         <!-- end of add employee button -->
 
@@ -27,7 +27,7 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">New Employee</h4>
+                            {% comment %} <h4 class="modal-title">New Employee</h4> {% endcomment %}
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
@@ -67,6 +67,7 @@
         </div>
         {% comment %} end of add employee form {% endcomment %}
 
+        
         <!-- card that display list of employee -->
         <div class="card">
             <div class="card-body">
@@ -87,9 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="col-2 ">
-                                    <!-- <i class='tIcon fas fa-tasks'>&nbsp;3</i> -->
                                     <div class="tIcon ">
-                                        {% comment %} <a href="#engagedProj" data-toggle="modal"><i class="fas fa-tasks"></i></a> {% endcomment %}
                                         <a class="buttonShowEngaged" onclick="findEmployeeProjects({{ employee.id }})"><i class="fas fa-tasks"></i></a>
                                     </div>
                                 </div>
@@ -104,34 +103,14 @@
 
         <!-- modal to display the team members engaged in the project -->
         <div class="container">
-            <!-- The Modal -->
-            <div class="modal" id="engagedProj" style="margin-top: 100px; height: 70%;">
-                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal" id="engagedProj" style="height: 700px;">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h1 class="modal-title" style="color: #086788;">Engaged Project</h1>
-                            <button type="button" class="close" data-dismiss="modal" style="color: #D80032; padding-right: 20px;">×</button>
+                        <div class="card mb-1" style="height: 550px;">
+                            <div class="modal-body" id="xxx" style="padding: 20px 70px;">
+                                <ul class="list-group list-group-flush" style="list-style-type: none;"></ul>
+                            </div>
                         </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body" id="xxx" xx>
-                            <ul class="list-group list-group-flush">
-                                {% comment %} {% for employee in employees %}
-                                <li class="list-group-item">{{ employee.name }}</li> {% endcomment %}
-                                {% comment %} {% for proj in xx %}
-                                <li class="list-group-item">{{ proj }}</li>
-                                {% endfor %}  {% endcomment %}
-                                {% comment %} {% endfor %} {% endcomment %}
-                            </ul>
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn" style="background-color: #D80032; color: white;" data-dismiss="modal"><strong>Close</strong></button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -155,12 +134,12 @@
                     if (results.success == "True") {
                         // here should fire up modal and send data to modal
                         console.log(results.projectList)
-                        //var $listing = $("#xxx ul");
                         $("#xxx ul").empty();
-                        for (var i=0; i < results.projectList.length; i++) {
-                            $("#xxx ul").append('<li class="list-group-item">' + results.projectList[i] + '</li>');
-                        }
 
+                        for (var i=0; i < results.projectList.length; i++) {
+                            $("#xxx ul").append('<li class="list-group-item" style="text-align:center; color:#0F8B8D; font-weight:bold;"><i style="font-size:18px; display:inline-block; color:#FF7A0D;" class="fas">&#xf328;</i>&nbsp;&nbsp;&nbsp;' + results.projectList[i] + '</li>');
+                        }
+                        
                         $("#engagedProj").modal('show');
                     }
                     else { 
