@@ -89,7 +89,8 @@
                                 <div class="col-2 ">
                                     <!-- <i class='tIcon fas fa-tasks'>&nbsp;3</i> -->
                                     <div class="tIcon ">
-                                        <a href="#myModal" data-toggle="modal"><i class="fas fa-tasks"></i></a>
+                                        {% comment %} <a href="#engagedProj" data-toggle="modal"><i class="fas fa-tasks"></i></a> {% endcomment %}
+                                        <a class="buttonShowEngaged" onclick="findEmployeeProjects({{ employee.id }})"><i class="fas fa-tasks"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +105,7 @@
         <!-- modal to display the team members engaged in the project -->
         <div class="container">
             <!-- The Modal -->
-            <div class="modal" id="myModal" style="margin-top: 100px; height: 70%;">
+            <div class="modal" id="engagedProj" style="margin-top: 100px; height: 70%;">
                 <div class="modal-dialog modal-lg modal-dialog-scrollable">
                     <div class="modal-content">
 
@@ -115,13 +116,14 @@
                         </div>
 
                         <!-- Modal body -->
-                        <div class="modal-body">
+                        <div class="modal-body" id="xxx" xx>
                             <ul class="list-group list-group-flush">
-                                {% for employee in employees %}
-                                <li class="list-group-item">{{ employee.name }}</li>
-                                {% for proj in employee.engagement_set.all.values %}
-                                <li class="list-group-item">{{ proj.title }}</li>
-                                {% endfor %} {% endfor %}
+                                {% comment %} {% for employee in employees %}
+                                <li class="list-group-item">{{ employee.name }}</li> {% endcomment %}
+                                {% comment %} {% for proj in xx %}
+                                <li class="list-group-item">{{ proj }}</li>
+                                {% endfor %}  {% endcomment %}
+                                {% comment %} {% endfor %} {% endcomment %}
                             </ul>
                         </div>
 
@@ -137,6 +139,42 @@
         <!-- end of modal -->
 
     </div>
+
+    <script>
+        function findEmployeeProjects(id_in) {
+            var employeeId_editButton = id_in;
+            $.ajax({
+                url: "{% url 'getEmployeeId' %}", 
+                type : "POST",
+                data : {
+                    "pk_in" : employeeId_editButton,
+                },
+                dataType : "json",
+
+                success: function(results){
+                    if (results.success == "True") {
+                        // here should fire up modal and send data to modal
+                        console.log(results.projectList)
+                        //var $listing = $("#xxx ul");
+                        $("#xxx ul").empty();
+                        for (var i=0; i < results.projectList.length; i++) {
+                            $("#xxx ul").append('<li class="list-group-item">' + results.projectList[i] + '</li>');
+                        }
+
+                        $("#engagedProj").modal('show');
+                    }
+                    else { 
+                        showErrorMessage() ;
+                    } 
+                },
+
+                headers:{
+                    "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()
+                },
+            });
+        };
+    </script>
+
 </body>
 
 {% endblock %}

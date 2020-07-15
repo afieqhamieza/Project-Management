@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from employee.models import Employee
 from django.views.generic import CreateView
-from .models import Employee
+from engagement.models import Engagement
 from .forms import EmployeeForm
 from django.contrib import messages
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -23,11 +24,23 @@ def employee(request):
     context = {
         'employees' : employee_list,
         'form': form,
-
     }
     
     return render(request, 'employee.html', context)
 
-def load_levels(request):
-    level_options = request.GET.get('')
-    return render(request, 'employee.html', {'levels': level})
+def getEmployeeId(request):
+    if request.method == "POST":
+        pk_in = request.POST.get("pk_in")
+
+        #apply filter here to get the specific object   
+        employee_list = Employee.objects.all()
+        specific_employee = employee_list.filter(id=pk_in)
+
+        engagedProjectList = []
+        yy = specific_employee[0].engagement_set.all()
+
+        for temp in yy:
+            engagedProjectList.append(temp.title)
+
+        results = { "success":"True", "projectList":engagedProjectList }
+        return JsonResponse(results)
