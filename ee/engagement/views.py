@@ -83,3 +83,23 @@ def getengagementid(request):
 
         results = { "success":"True", "project":eng }
         return JsonResponse(results)
+
+
+def getTeamEngaged(request):
+    if request.method == "POST":
+        pk_in = request.POST.get("pk_in")
+
+        #apply filter here to get the specific object   
+        engagement_list = Engagement.objects.all()   
+        specific_engagement = engagement_list.filter(id=pk_in)
+        eng = specific_engagement[0]
+        staffList = eng.staff.values() 
+
+        nameList = []
+
+        for temp in staffList:
+            nameList.append(temp.get('name'))
+
+        results = { "success":"True", "nameList":nameList }
+
+        return JsonResponse(results)

@@ -79,12 +79,12 @@
                                 <div class="col-1 ">
                                     <i class='eIcon fas fa-user'></i>
                                 </div>
-                                <div class="col-9 ">
+                                <div class="col-9" style="color:brown; font-weight:bold;">
                                     <h5><strong>{{ employee.name }}</strong></h5>
                                     <div class="list-inline">
                                         <span class="list-inline-item">{{ employee.staffId }}</span>
-                                        <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
-                                        <span class="list-inline-item">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
+                                        <span class="list-inline-item" style="text-transform:capitalize;">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
+                                        <span class="list-inline-item" style="text-transform:capitalize;">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
                                     </div>
                                 </div>
                                 <div class="col-2 ">
@@ -101,12 +101,14 @@
         </div>
         <!-- end of employee list card -->
 
+
         <!-- modal to display the team members engaged in the project -->
         <div class="container">
             <div class="modal" id="engagedProj" style="height: 700px;">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="card mb-1" style="height: 550px;">
+                        <span style="text-align:center; margin: 30px; text-transform:uppercase; font-weight:bold; color:brown;"><p>Engaged Projects</p></span>
                             <div class="modal-body" id="xxx" style="padding: 20px 70px;">
                                 <ul class="list-group list-group-flush" style="list-style-type: none;"></ul>
                             </div>
