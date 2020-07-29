@@ -3,7 +3,7 @@ from .models import *
 
 class EmployeeForm(forms.ModelForm):
     # creating list of employee level
-    level_list = "Senior Executive", "Executive", "Senior Director", "Director", "Senior Manager", "Manager", "Senior Advisor", "Advisor", "Associate"
+    level_list = "Associate", "Associate Director", "Assistant Manager", "Director", "Executive Director", "Manager", "Senior Associate"
     level_options = []
 
     for x in level_list:

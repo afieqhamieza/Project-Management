@@ -18,8 +18,10 @@ class EngagementForm(forms.ModelForm):
     status_options=[
         ('',''),
         ("Proposed", "Proposed"),
-        ("In Development", "In Development"),
+        ("Active", "Active"),
         ("Completed", "Completed"),
+        ("Frozen", "Frozen"),
+        ("Projected", "Projected"),
     ]
         
 
