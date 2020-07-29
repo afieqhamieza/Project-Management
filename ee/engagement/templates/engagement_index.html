@@ -18,7 +18,7 @@
         <!-- end of add project button -->
 
 
-        <!-- add project form -->
+        <!-- add project form --> 
         <div class="container">
             <!-- The Modal -->
             <div class="modal fade" id="addProject" style="height: 90%; margin-top: 30px;">
@@ -93,7 +93,7 @@
         <!-- end of add project form -->
 
 
-        <!-- <h1>Engagements</h1> -->
+        <!-- Engagements for loop --> 
         <div class="row">
             {% for engagement in engagements %}
 
@@ -145,7 +145,7 @@
                 </div>
             </div>
         </div>
-        <!-- end of modal -->
+        <!-- end of modal to display the team members engaged in the project -->
 
 
         <!-- edit project card -->
@@ -205,6 +205,7 @@
 
     </div>
     <script>
+        // ------- load a specific engagement to get details of a specific project ------- //
         function loadEngagementId(id_in) {
             var engagementId_editButton = id_in;
             $.ajax({
@@ -217,7 +218,7 @@
 
                 success: function(results){
                     if (results.success == "True") {
-                        // here should fire up modal and send data to modal
+                        // fire up modal and send data to modal
                         $("#peditname").attr("value", results.project[1]);
                         $("#peditdesc").attr("value", results.project[2]);
                         $("#peditDue").attr("value", results.project[4]);
@@ -235,8 +236,9 @@
                 },
             });
         };
+        // ------- end of load a specific engagement to get details of a specific project ------- //
 
-
+        // ------- load a specific engagement to display list of engaged members ------- //
         function loadTeamEngaged(id_in) {
             var engagementId_editButton = id_in;
             $.ajax({
@@ -269,6 +271,7 @@
                 },
             });
         };
+        // ------- end of load a specific engagement to display list of engaged members ------- //
 
     </script>
 

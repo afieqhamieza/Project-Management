@@ -133,5 +133,4 @@ STATICFILES_DIRS = [
     'ee\engagement\static\css\engagement_index.css',
     'ee\engagement\static\js\engagement_index.js',
     'ee\engagement\static\js\engagement_edit.js',
-    
 ]

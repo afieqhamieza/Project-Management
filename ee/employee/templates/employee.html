@@ -1,6 +1,8 @@
 <html>
 
-{% extends "index.html" %} {% load crispy_forms_tags %} {% block page_content %}
+{% extends "index.html" %} 
+{% load crispy_forms_tags %} 
+{% block page_content %}
 
 <head>
     {% load static %}
@@ -10,7 +12,7 @@
 <body>
     <div class="container">
         <!-- add employee button -->
-        <div class="" style="text-align:right; margin-top:1%">
+        <div style="text-align:right; margin-top:1%">
             <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addEmployee">
                 <div class="add-icon"></div>
                 <div class="btn-txt">Add Employee</div>
@@ -27,7 +29,6 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            {% comment %} <h4 class="modal-title">New Employee</h4> {% endcomment %}
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
@@ -46,8 +47,8 @@
                             <div class="group">
                                 <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
                                 <!-- <label>{{form.level.label}}</label>
-                            <span class="highlight"></span>
-                            <span class="bar">{{form.level}}</span> -->
+                                <span class="highlight"></span>
+                                <span class="bar">{{form.level}}</span> -->
 
 
                                 <div class="floating-label">
@@ -65,7 +66,7 @@
                 </div>
             </div>
         </div>
-        {% comment %} end of add employee form {% endcomment %}
+        <!-- end of add employee form -->
 
         
         <!-- card that display list of employee -->
@@ -82,14 +83,24 @@
                                 <div class="col-9" style="color:brown; font-weight:bold;">
                                     <h5><strong>{{ employee.name }}</strong></h5>
                                     <div class="list-inline">
-                                        <span class="list-inline-item">{{ employee.staffId }}</span>
-                                        <span class="list-inline-item" style="text-transform:capitalize;">&bull;&nbsp;&nbsp;{{ employee.level }}</span>
-                                        <span class="list-inline-item" style="text-transform:capitalize;">&bull;&nbsp;&nbsp;{{ employee.team }}</span>
+                                        <span class="list-inline-item">
+                                            {{ employee.staffId }}
+                                        </span>
+                                        <span class="list-inline-item" style="text-transform:capitalize;">
+                                            &bull;&nbsp;&nbsp;
+                                            {{ employee.level }}
+                                        </span>
+                                        <span class="list-inline-item" style="text-transform:capitalize;">
+                                            &bull;&nbsp;&nbsp;
+                                            {{ employee.team }}
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-2 ">
                                     <div class="tIcon ">
-                                        <a class="buttonShowEngaged" onclick="findEmployeeProjects({{ employee.id }})"><i class="fas fa-tasks"></i></a>
+                                        <a class="buttonShowEngaged" onclick="findEmployeeProjects({{ employee.id }})">
+                                            <i class="fas fa-tasks"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -104,14 +115,16 @@
 
         <!-- modal to display the team members engaged in the project -->
         <div class="container">
-            <div class="modal" id="engagedProj" style="height: 700px;">
+            <div class="modal" id="engagedProj" style="height:700px;">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
-                        <div class="card mb-1" style="height: 550px;">
-                        <span style="text-align:center; margin: 30px; text-transform:uppercase; font-weight:bold; color:brown;"><p>Engaged Projects</p></span>
-                            <div class="modal-body" id="xxx" style="padding: 20px 70px;">
-                                <ul class="list-group list-group-flush" style="list-style-type: none;"></ul>
-                            </div>
+                        <div class="card mb-1" style="height:550px;">
+                        <span style="text-align:center; margin: 30px; text-transform:uppercase; font-weight:bold; color:brown;">
+                            <p>Engaged Projects</p>
+                        </span>
+                        <div class="modal-body" id="xxx" style="padding: 20px 70px;">
+                            <ul class="list-group list-group-flush" style="list-style-type: none;"></ul>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +151,7 @@
                         console.log(results.projectList)
                         $("#xxx ul").empty();
 
-                        for (var i=0; i < results.projectList.length; i++) {
+                        for (var i=0; i<results.projectList.length; i++) {
                             $("#xxx ul").append('<li class="list-group-item" style="text-align:center; color:#0F8B8D; font-weight:bold;"><i style="font-size:18px; display:inline-block; color:#FF7A0D;" class="fas">&#xf328;</i>&nbsp;&nbsp;&nbsp;' + results.projectList[i] + '</li>');
                         }
                         
