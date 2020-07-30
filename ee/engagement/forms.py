@@ -14,7 +14,7 @@ class EngagementForm(forms.ModelForm):
         name_id = ''.join(name) + " (" + ''.join(id) + ")"   #string
         choice = (name_id, name_id)     #tuple if buat (  ,  )
         staff_options.append(choice)
-
+    # import pdb; pdb.set_trace()
     status_options=[
         ('',''),
         ("Proposed", "Proposed"),
@@ -29,11 +29,7 @@ class EngagementForm(forms.ModelForm):
     body = forms.CharField(label="Project's Description", required=True, widget=forms.TextInput( attrs={}) )
     startDate = forms.DateField(label="Start Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
     endDate = forms.DateField(label="End Date yyyy-mm-dd", required=True, widget=forms.TextInput( attrs={}) )
-    staff = forms.MultipleChoiceField(label="Engaged Employee", required=True, choices=staff_options, widget=forms.Select(
-        attrs={
-            "style":'font-size: 18px; padding: 10px 10px 10px 5px; display: block; width: 300px; border: none; border-bottom: 1px solid #757575;'
-        }
-    ))
+    staff = forms.MultipleChoiceField(label="Engaged Employee", required=False, choices=staff_options)
     status = forms.ChoiceField( required=True, choices=status_options, widget=forms.Select(
         attrs={
             "style":'font-size: 18px; padding: 10px 10px 10px 5px; display: block; width: 300px; border: none; border-bottom: 1px solid #757575;'
