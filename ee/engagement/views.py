@@ -16,26 +16,24 @@ def engagement_index(request):
     
     if (request.method == 'POST') and ("addProj" in request.POST):
         form = EngagementForm(request.POST) #creating instance of the form
-        # import pdb; pdb.set_trace()
+
         if form.is_valid():
-            # import pdb; pdb.set_trace()
             form.save()
 
             title_in = request.POST.get('title')
             e1 = Engagement.objects.get(title=title_in)
             staff_list = request.POST.getlist('staff')                      #save the whole string of list of staff user input
-            # import pdb; pdb.set_trace()
+
             for x in staff_list:
-                # import pdb; pdb.set_trace()
                 name_in, id_in = x.replace(")","").split(" (")               #split the strings 
                 id_in = int(id_in)
-                # import pdb; pdb.set_trace()
+
                 for emp in employee_list:
                     if emp.name == name_in and emp.staffId == id_in:
                         staff_in = emp
-                # import pdb; pdb.set_trace()
+
                 e1.staff.add(staff_in)
-                # import pdb; pdb.set_trace()
+
             messages.success(request, f'{"Form submission successful"}')
             return redirect('engagement_index')                             #here should enter a new url where it will go if successful
     
