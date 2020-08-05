@@ -8,6 +8,20 @@
 
 <body>
     <div class="container">
+        <!-- filter card -->
+        <select class="form-control" id="sel1" name="sellist1" style="width: 15%;background-color: #F8D112; color: brown; position: absolute; right:15%; font-weight:bold;">
+            <option value="allProjects">All Projects</option>
+            <option value="dueDate">Due Date</option>
+            <option value="completed">Completed Projects</option>
+            <option value="projected">Projected Projects</option>
+            <option value="active">Active Projects</option>
+            <option value="frozen">Frozen Projects</option>
+            <option value="highestEngagedMembers">Highest Engaged Members</option>
+        </select>
+        <br><br>
+        <!-- end of filter card -->
+
+
         <!-- add project button -->
         <div class="" style="text-align:right; margin-top:1%">
             <button type="button" class="icon-btn add-btn" data-toggle="modal" data-target="#addProject">
@@ -205,6 +219,7 @@
 
     </div>
     <script>
+
         // ------- load a specific engagement to get details of a specific project ------- //
         function loadEngagementId(id_in) {
             var engagementId_editButton = id_in;
@@ -237,6 +252,7 @@
             });
         };
         // ------- end of load a specific engagement to get details of a specific project ------- //
+
 
         // ------- load a specific engagement to display list of engaged members ------- //
         function loadTeamEngaged(id_in) {
