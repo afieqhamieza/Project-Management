@@ -23,16 +23,17 @@
         <!-- add employee form  -->
         <div class="container">
             <!-- The Modal -->
-            <div class="modal fade" id="addEmployee">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal fade" id="addEmployee" style="height: 90%; margin-top: 30px;">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
-
+                    
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
                         <!-- Modal body -->
+                        <div class="modal-body">
                         <form class="cuba" action="" method="post">
                             {% csrf_token %} {% for field in form %}
                             <div class="group">
@@ -43,13 +44,14 @@
                                 <label>{{field.label}}</label>
                             </div>
                             {% endfor %}
+                        </div>
 
-                            <div class="group">
-                                <!-- <input type="text" required="true" id="{{form.title.id_for_label}}"> -->
-                                <!-- <label>{{form.level.label}}</label>
+                            <!-- <div class="group">
+                                 <input type="text" required="true" id="{{form.title.id_for_label}}">
+                                 <label>{{form.level.label}}</label>
                                 <span class="highlight"></span>
-                                <span class="bar">{{form.level}}</span> -->
-                            </div>
+                                <span class="bar">{{form.level}}</span> 
+                            </div> -->
 
                             <div class="modal-footer">
                                 <input type="submit" name="addEmp" class="btn" value="Submit" style="background-color: #D80032; color: white; width: auto; ">
