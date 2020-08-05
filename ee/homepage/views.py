@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from engagement.models import Engagement
 from employee.models import Employee
+import datetime
 
 # Create your views here.
 
@@ -14,7 +15,7 @@ def homepage(request):
     temp = list(reversed(engagement_list))
     latest7 = temp[:7]
 
-    engagement_byEndDate = Engagement.objects.order_by('endDate', 'startDate') 
+    engagement_byEndDate = Engagement.objects.exclude(endDate__lte = datetime.date.today()).order_by('endDate', 'startDate')
 
     context= {
         'engCount': engagement_count,
