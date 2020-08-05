@@ -1,4 +1,4 @@
-/* add project button styling */
+/* ------- add project button styling ------- */
 
 .icon-btn {
     width: 50px;
@@ -103,10 +103,10 @@
 }
 
 
-/* end of add project button styling */
+/* ------- end of add project button styling ------- */
 
 
-/* add project form styling */
+/* ------- add project form styling ------- */
 
 * {
     box-sizing: border-box;
@@ -238,10 +238,10 @@ input:focus~.highlight {
 }
 
 
-/* end of add form styling */
+/* ------- end of add form styling ------- */
 
 
-/* card styling */
+/* ------- card styling ------- */
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -259,10 +259,10 @@ input:focus~.highlight {
 }
 
 
-/* end of card styling */
+/* ------- end of card styling ------- */
 
 
-/* user icon styling */
+/* ------- user icon styling ------- */
 
 .fa-user {
     font-size: 40px;
@@ -273,10 +273,10 @@ input:focus~.highlight {
 }
 
 
-/* end of user icon styling */
+/* ------- end of user icon styling ------- */
 
 
-/* project icon styling */
+/* ------- project icon styling ------- */
 
 .tIcon {
     font-size: 15px;
@@ -300,4 +300,4 @@ input:focus~.highlight {
 }
 
 
-/* end of project icon styling */
+/* ------- end of project icon styling ------- */

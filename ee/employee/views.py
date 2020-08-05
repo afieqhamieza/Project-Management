@@ -28,6 +28,7 @@ def employee(request):
     
     return render(request, 'employee.html', context)
 
+#get the id of specific employee to get list of engagements
 def getEmployeeId(request):
     if request.method == "POST":
         pk_in = request.POST.get("pk_in")

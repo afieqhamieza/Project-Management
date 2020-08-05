@@ -1,8 +1,12 @@
+/* -------- progress bar styling -------- */
 .a {
     top: 0px;
     height: 5px;
 }
+/* -------- end of progress bar styling -------- */
 
+
+/* ------- engagement for loop styling ------- */
 .card-deck {
     margin-bottom: 30px;
 }
@@ -36,18 +40,6 @@
     position: relative;
 }
 
-h2 {
-    /* margin: 0 0 5px; */
-    font-weight: 600;
-    font-size: 25px;
-}
-
-h2 small {
-    display: block;
-    font-size: 15px;
-    margin-top: 10px;
-}
-
 .icon-block {
     margin-top: 15px;
     position: absolute;
@@ -79,7 +71,7 @@ h2 small {
     text-decoration: none;
 }
 
-.fa-users {
+a .fa-users {
     color: #FF7A0D;
 }
 
@@ -87,10 +79,10 @@ a .fa-pen {
     color: #D80032;
     text-decoration: none;
 }
+/* ------- end of engagement for loop styling ------- */
 
 
-/* add project button styling */
-
+/* -------- add project button styling -------- */
 .icon-btn {
     width: 50px;
     height: 50px;
@@ -193,13 +185,10 @@ a .fa-pen {
     height: 4px;
     top: calc(50% - 2px);
 }
+/* -------- end of add project button styling -------- */
 
 
-/* end of add project button styling */
-
-
-/* add project form styling */
-
+/* -------- add project form styling -------- */
 * {
     box-sizing: border-box;
 }
@@ -212,9 +201,6 @@ a .fa-pen {
     background: none;
     padding: 10px 50px 50px;
 }
-
-
-/* form starting stylings ------------------------------- */
 
 .group {
     position: relative;
@@ -331,10 +317,10 @@ input:focus~.highlight {
         background: transparent;
     }
 }
+/* -------- end of add project form styling -------- */
 
 
-/* end of add form styling */
-
+/* -------- edit project card styling ------- */
 .editProjectCard input[type=text] {
     width: 100%;
     padding: 12px 20px;
@@ -349,3 +335,4 @@ input:focus~.highlight {
     background: none;
     width: 100%;
 }
+/* ------- end of edit project card styling ------- */
