@@ -15,9 +15,6 @@ def engagement_index(request):
     engagement_list = Engagement.objects.all()   
     employee_list = Employee.objects.all()
 
-
-
-    # if ("addProj" in request.POST):
     if (request.method == 'POST') and ("addProj" in request.POST):
         form = EngagementForm(request.POST) #creating instance of the form
 
@@ -26,7 +23,7 @@ def engagement_index(request):
 
             title_in = request.POST.get('title')
             e1 = Engagement.objects.get(title=title_in)
-            staff_list = request.POST.getlist('staff')                      #save the whole string of list of staff user input
+            staff_list = request.POST.getlist('staff')                       #save the whole string of list of staff user input
 
             for x in staff_list:
                 name_in, id_in = x.replace(")","").split(" (")               #split the strings 
@@ -83,6 +80,7 @@ def engagement_index(request):
     # import pdb;pdb.set_trace()
     return render(request, 'engagement_index.html', context)
        
+
 def updateTest(request, pk):
     engagement_list = Engagement.objects.all()   
     employee_list = Employee.objects.all()
@@ -185,6 +183,40 @@ def getTeamEngaged(request):
         results = { "success":"True", "nameList":nameList }
 
         return JsonResponse(results)
+
+
+# def getSelectedFilter(request):
+#     filter_in = request.POST.get('filter_in')
+#     engagement_list = Engagement.objects.all()
+
+#     if (filter_in == "allProjects"):
+#         filteredEng = engagement_list
+#     elif (filter_in == "dueDate"):
+#         filteredEng = Engagement.objects.order_by('endDate')
+#     elif (filter_in == "completed"):
+#         filteredEng = Engagement.objects.filter(status = 'Completed')
+#     elif (filter_in == "projected"): 
+#         filteredEng = Engagement.objects.filter(status = 'Projected')
+#     elif (filter_in == "active"):
+#         filteredEng = Engagement.objects.filter(status = 'Active')
+#     elif (filter_in == "frozen"):
+#         filteredEng = Engagement.objects.filter(status = 'Frozen')
+#     elif (filter_in == "highestEngagedMembers"):
+#         filteredEng = Engagement.objects.annotate(highMem=Count('staff')).order_by('-highMem')
+#     else:
+#         filteredEng = engagement_list
+
+
+#     import pdb; pdb.set_trace()
+
+#     fffilteredEng = list(filteredEng)
+#     results = { 
+#         "success":"True", 
+#         "filteredEng": fffilteredEng
+#     }
+#     import pdb; pdb.set_trace()
+#     return JsonResponse(results)
+
 
 # def updateEngagement(request):
 #     if request.method == "POST":

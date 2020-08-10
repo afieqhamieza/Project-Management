@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <!-- filter card -->
-        <select class="form-control" id="displayFilterEngagement" name="displayFilterEngagement" style="width: 15%;background-color: #F8D112; color: brown; position: absolute; right:15%; font-weight:bold;">
+        <select class="form-control" id="displayFilterEngagement" name="displayFilterEngagement" style="width: 15%; background-color: #F8D112; color: brown; position: absolute; right:15%; font-weight:bold;">
             <option value="allProjects">All Projects</option>
             <option value="dueDate">Due Date</option>
             <option value="completed">Completed Projects</option>
@@ -108,10 +108,10 @@
 
 
         <!-- Engagements for loop --> 
-        <div class="row">
-            {% for engagement in engagements %}
+        <div class="row" id="engagementCardList">
+            <span id="huhu">{% for engagement in engagements %}</span>
 
-            <div class="col-md-3 py-4">
+            <div class="col-md-3 py-4 engagementCard">
                 <div class="card mb-1">
                     <div class="progress a">
                         <div class="progress-bar bg-success" role="progressbar" style="width:{{ engagement.progress }}" aria-valuenow="{{engagement.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -287,6 +287,36 @@
             });
         };
         // ------- end of load a specific engagement to display list of engaged members ------- //
+
+
+        // ------- get selected value from filtered options and send to back end ------- //
+        {% comment %} $('#displayFilterEngagement').on('change ', function(){
+            filter_in = $("#displayFilterEngagement :selected").val();
+            console.log(filter_in);
+
+            $.ajax({
+                url: "{% url 'getSelectedFilter' %}", 
+                type : "POST",
+                data : {
+                    "filter_in" : filter_in,
+                },
+                dataType : "json",
+
+                success: function(results){
+                    if (results.success == "True") {
+                        console.log(results)
+                    }
+                    else { 
+                        showErrorMessage() ;
+                    } 
+                },
+
+                headers:{
+                    "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()
+                },
+            });
+        });
+        // ------- end of get selected value from filtered options and send to back end ------- // {% endcomment %}
 
     </script>
 
